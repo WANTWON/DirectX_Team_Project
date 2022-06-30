@@ -3,6 +3,7 @@
 
 CPlayer::CPlayer()
 {
+	//원혜연 바보
 }
 
 
