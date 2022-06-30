@@ -18,6 +18,7 @@ void CPlayer::Initialize(void)
 	m_tInfo.vLook = { 1.f, 0.f, 0.f };
 	////////
 	m_fSpeed = 10.f;
+	///////
 }
 
 void CPlayer::Update(void)
