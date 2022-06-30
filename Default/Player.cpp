@@ -19,6 +19,7 @@ void CPlayer::Initialize(void)
 	////////
 	m_fSpeed = 10.f;
 	///////
+	///////
 }
 
 void CPlayer::Update(void)
