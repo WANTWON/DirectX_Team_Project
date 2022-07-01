@@ -15,7 +15,12 @@ void CBullet::Initialize(void)
 {
 }
 
-void CBullet::Update(void)
+int CBullet::Update(void)
+{
+	return OBJ_NOEVENT;
+}
+
+void CBullet::Late_Update(void)
 {
 }
 

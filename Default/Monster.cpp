@@ -19,7 +19,7 @@ void CMonster::Initialize(void)
 	
 }
 
-void CMonster::Update(void)
+int CMonster::Update(void)
 {
 	m_tInfo.vDir = m_pPlayer->Get_Info().vPos - m_tInfo.vPos;
 
@@ -30,6 +30,12 @@ void CMonster::Update(void)
 	m_tInfo.vDir.z = 0.f;
 
 	m_tInfo.vPos += m_tInfo.vDir * m_fSpeed;
+
+	return OBJ_NOEVENT;
+}
+
+void CMonster::Late_Update(void)
+{
 }
 
 void CMonster::Render(HDC hDC)

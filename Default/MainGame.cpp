@@ -1,11 +1,12 @@
 #include "stdafx.h"
 #include "MainGame.h"
-#include "Monster.h"
+#include "SceneMgr.h"
+#include "KeyMgr.h"
+#include "BmpMgr.h"
 
-
-CMainGame::CMainGame()
-	: m_pPlayer(nullptr), m_pMonster(nullptr)
+CMainGame::CMainGame() : m_dwTime(GetTickCount()), m_iFPS(0)
 {
+	ZeroMemory(m_szFPS, sizeof(m_szFPS));
 }
 
 CMainGame::~CMainGame()
@@ -17,37 +18,47 @@ void CMainGame::Initialize(void)
 {
 	m_hDC = GetDC(g_hWnd);
 
-	if (!m_pPlayer)
-	{
-		m_pPlayer = new CPlayer;
-		m_pPlayer->Initialize();
-	}
-
-	if (!m_pMonster)
-	{
-		m_pMonster = new CMonster;
-		m_pMonster->Initialize();
-	}
-
-	dynamic_cast<CMonster*>(m_pMonster)->Set_Player(m_pPlayer);
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Back.bmp", L"Back");
+	CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
 }
 
 void CMainGame::Update(void)
 {
-	m_pPlayer->Update();
-	m_pMonster->Update();
+	CSceneMgr::Get_Instance()->Update();
+}
+
+void CMainGame::Late_Update(void)
+{
+	CSceneMgr::Get_Instance()->Late_Update();
 }
 
 void CMainGame::Render(void)
 {
-	Rectangle(m_hDC, 0, 0, WINCX, WINCY);
-	m_pPlayer->Render(m_hDC);
-	m_pMonster->Render(m_hDC);
+	++m_iFPS;
+
+	if (m_dwTime + 1000 < GetTickCount())
+	{
+		swprintf_s(m_szFPS, L"FPS : %d", m_iFPS);
+		SetWindowText(g_hWnd, m_szFPS);
+
+		m_iFPS = 0;
+		m_dwTime = GetTickCount();
+	}
+
+	HDC	hBackDC = CBmpMgr::Get_Instance()->Find_Image(L"Back");
+
+	BitBlt(m_hDC, 0, 0, WINCX, WINCY, hBackDC, 0, 0, SRCCOPY);
+	CSceneMgr::Get_Instance()->Render(hBackDC);
+
+
 }
 
 void CMainGame::Release(void)
 {
-	Safe_Delete<CObj*>(m_pPlayer);
-	Safe_Delete<CObj*>(m_pMonster);
+	CSceneMgr::Get_Instance()->Destroy_Instance();
+	CKeyMgr::Get_Instance()->Destroy_Instance();
+	CObjMgr::Get_Instance()->Destroy_Instance();
+	CBmpMgr::Get_Instance()->Destroy_Instance();
+
 	ReleaseDC(g_hWnd, m_hDC);
 }
