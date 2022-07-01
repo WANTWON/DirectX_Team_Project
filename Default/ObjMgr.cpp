@@ -31,10 +31,10 @@ void CObjMgr::Add_Object(OBJID _ID, CObj* pObj)
 
 void CObjMgr::Delete_ID(OBJID eID)
 {
-	//for (auto& iter : m_pObjList[eID])
-	//	Safe_Delete(iter);
+	for (auto& iter : m_pObjList[eID])
+		Safe_Delete(iter);
 
-	//m_pObjList[eID].clear();
+	m_pObjList[eID].clear();
 }
 
 int CObjMgr::Update()
@@ -64,10 +64,12 @@ void CObjMgr::Late_Update()
 	for (size_t i = 0; i != OBJ_END; ++i)
 	{
 		for (auto& iter : m_pObjList[i])
+		{
 			iter->Late_Update();
 
-		if (m_pObjList[i].empty())
-			continue;
+			if (m_pObjList[i].empty())
+				break;
+		}
 	}
 
 }
