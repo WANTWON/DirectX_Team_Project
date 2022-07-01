@@ -64,10 +64,12 @@ void CObjMgr::Late_Update()
 	for (size_t i = 0; i != OBJ_END; ++i)
 	{
 		for (auto& iter : m_pObjList[i])
+		{
 			iter->Late_Update();
 
-		if (m_pObjList[i].empty())
-			continue;
+			if (m_pObjList[i].empty())
+				break;
+		}
 	}
 
 }

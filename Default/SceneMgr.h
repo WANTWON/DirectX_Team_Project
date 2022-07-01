@@ -36,6 +36,9 @@ public:
 		}
 	}
 private:
+	void		Reset_Stage();
+
+private:
 	static		CSceneMgr*		m_pInstance;
 	CScene*						m_pScene;
 

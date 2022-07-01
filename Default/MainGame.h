@@ -23,4 +23,8 @@ private:
 	DWORD m_dwTime;
 	int m_iFPS;
 	TCHAR m_szFPS[32];
+
+	HDC hMemdc;
+	HBITMAP hBitmap;
+	HBITMAP hOldBitmap;
 };

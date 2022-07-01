@@ -37,7 +37,7 @@ int CMyButton::Update(void)
 
 void CMyButton::Late_Update(void)
 {
-	if (this == nullptr)
+	//if (this == nullptr)
 		//return;
 
 	POINT		Pt;
