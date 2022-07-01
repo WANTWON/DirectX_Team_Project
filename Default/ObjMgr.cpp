@@ -70,7 +70,6 @@ void CObjMgr::Late_Update()
 			if (m_pObjList[i].empty())
 				break;
 		}
-			
 	}
 
 }

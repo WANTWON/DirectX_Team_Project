@@ -17,8 +17,10 @@ CMainGame::~CMainGame()
 void CMainGame::Initialize(void)
 {
 	m_hDC = GetDC(g_hWnd);
-
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Back.bmp", L"Back");
+	hMemdc = CreateCompatibleDC(m_hDC);
+	hBitmap = CreateCompatibleBitmap(m_hDC, WINCX, WINCY);
+	hOldBitmap = (HBITMAP)SelectObject(hMemdc, hBitmap);
+//	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Back.bmp", L"Back");
 	CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
 }
 
@@ -35,7 +37,7 @@ void CMainGame::Late_Update(void)
 void CMainGame::Render(void)
 {
 	++m_iFPS;
-
+	Rectangle(hMemdc, 0, 0, WINCX, WINCY);
 	if (m_dwTime + 1000 < GetTickCount())
 	{
 		swprintf_s(m_szFPS, L"FPS : %d", m_iFPS);
@@ -45,10 +47,10 @@ void CMainGame::Render(void)
 		m_dwTime = GetTickCount();
 	}
 
-	HDC	hBackDC = CBmpMgr::Get_Instance()->Find_Image(L"Back");
 
-	BitBlt(m_hDC, 0, 0, WINCX, WINCY, hBackDC, 0, 0, SRCCOPY);
-	CSceneMgr::Get_Instance()->Render(hBackDC);
+
+	BitBlt(m_hDC, 0, 0, WINCX, WINCY, hMemdc, 0, 0, SRCCOPY);
+	CSceneMgr::Get_Instance()->Render(m_hDC);
 
 
 }
@@ -60,5 +62,7 @@ void CMainGame::Release(void)
 	CObjMgr::Get_Instance()->Destroy_Instance();
 	CBmpMgr::Get_Instance()->Destroy_Instance();
 
+	hBitmap = (HBITMAP)SelectObject(hMemdc, hOldBitmap);
+	ReleaseDC(g_hWnd, hMemdc);
 	ReleaseDC(g_hWnd, m_hDC);
 }
