@@ -82,6 +82,15 @@
     <Filter Include="01. Obj\04. Obj_4\40. Player">
       <UniqueIdentifier>{f79fc53e-e33f-4071-9319-39474c2378f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\03.Obj_3">
+      <UniqueIdentifier>{e0356094-8d24-407f-9bcd-3f49775b2a07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03.Obj_3\30..Player">
+      <UniqueIdentifier>{16aeb373-ded0-44a4-9b70-75517110eb07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03.Obj_3\31.Bullet">
+      <UniqueIdentifier>{ce8cefe1-6a1b-4fc0-83fd-188a03c6f6d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -174,6 +183,12 @@
     <ClInclude Include="Player4.h">
       <Filter>01. Obj\04. Obj_4\40. Player</Filter>
     </ClInclude>
+    <ClInclude Include="Player3.h">
+      <Filter>01. Obj\03.Obj_3\30..Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet3.h">
+      <Filter>01. Obj\03.Obj_3\31.Bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -238,6 +253,12 @@
     </ClCompile>
     <ClCompile Include="Player4.cpp">
       <Filter>01. Obj\04. Obj_4\40. Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player3.cpp">
+      <Filter>01. Obj\03.Obj_3\30..Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet3.cpp">
+      <Filter>01. Obj\03.Obj_3\31.Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

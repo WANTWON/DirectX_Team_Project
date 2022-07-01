@@ -1,18 +1,21 @@
 #include "stdafx.h"
-#include "Player4.h"
+#include "Player3.h"
+#include "AbstractFactory.h"
+#include "Bullet3.h"
+#include "ObjMgr.h"
+#include "KeyMgr.h"
 
 
-
-CPlayer4::CPlayer4()
+CPlayer3::CPlayer3()
 {
 }
 
 
-CPlayer4::~CPlayer4()
+CPlayer3::~CPlayer3()
 {
 }
 
-void CPlayer4::Initialize(void)
+void CPlayer3::Initialize(void)
 {
 	m_tInfo.vPos = { 400.f, 300.f, 0.f };
 	m_tInfo.vLook = { 1.f, 0.f, 0.f };
@@ -22,7 +25,7 @@ void CPlayer4::Initialize(void)
 	///////
 }
 
-int CPlayer4::Update(void)
+int CPlayer3::Update(void)
 {
 	m_tInfo.vDir = ::Get_Mouse() - m_tInfo.vPos;
 
@@ -71,34 +74,41 @@ int CPlayer4::Update(void)
 
 
 #pragma endregion DIRECT 함수를 이용한 과제 풀이
-
-
+	
+	
 
 	return OBJ_NOEVENT;
-}
 
-void CPlayer4::Late_Update(void)
-{
-
-}
-
-void CPlayer4::Key_Input(void)
-{
 
 
 
 }
 
-void CPlayer4::Render(HDC hDC)
+void CPlayer3::Late_Update(void)
 {
-	Rectangle(hDC,
+}
+
+void CPlayer3::Render(HDC hDC)
+{
+	Ellipse(hDC,
 		int(m_tInfo.vPos.x - 50.f),
 		int(m_tInfo.vPos.y - 50.f),
 		int(m_tInfo.vPos.x + 50.f),
 		int(m_tInfo.vPos.y + 50.f));
 }
 
-void CPlayer4::Release(void)
+
+void CPlayer3::Key_Input(void)
+{
+
+	if (CKeyMgr::Get_Instance()->Key_Down(VK_SPACE))
+	{
+		//CObjMgr::Get_Instance()->Add_Object(OBJ_BULLET,CAbstractFactory<CBullet3>::Create(float(m_tPosin.x), float(m_tPosin.y), m_fAngle));
+	}
+
+}
+
+void CPlayer3::Release(void)
 {
 }
 

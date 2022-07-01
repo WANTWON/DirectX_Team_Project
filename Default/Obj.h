@@ -33,5 +33,11 @@ protected:
 	TCHAR*		m_pFrameKey;
 	int m_iHp;
 	float		m_fSpeed;
+
+
+	DWORD		m_dwTime;
+
+	bool m_bDead;
+	bool m_bFront;
 };
 
