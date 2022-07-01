@@ -14,17 +14,23 @@ public:
 		m_tInfo.vPos.x = _fX;
 		m_tInfo.vPos.y = _fY;
 	}
-
+	void Set_PosY(float _fY) { m_tInfo.vPos.y += _fY; }
+	void Set_PosX(float _fX) { m_tInfo.vPos.x += _fX; }
 	const INFO&		Get_Info(void)const { return m_tInfo; }
 
 public:
 	virtual		void	Initialize(void)	PURE;
-	virtual		void	Update(void)		PURE;
+	virtual		int		Update(void)		PURE;
+	virtual		void	Late_Update(void)	PURE;
 	virtual		void	Render(HDC hDC)		PURE;
 	virtual		void	Release(void)		PURE;
+
+public:
+	void		Set_FrameKey(TCHAR* _pFramekey) { m_pFrameKey = _pFramekey; }
 	
 protected:
 	INFO		m_tInfo;
+	TCHAR*		m_pFrameKey;
 
 	float		m_fSpeed;
 };

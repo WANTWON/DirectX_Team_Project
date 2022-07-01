@@ -19,7 +19,7 @@ void CPlayer::Initialize(void)
 	m_fSpeed = 10.f;
 }
 
-void CPlayer::Update(void)
+int CPlayer::Update(void)
 {
 	m_tInfo.vDir = ::Get_Mouse() - m_tInfo.vPos;
 	
@@ -71,7 +71,11 @@ void CPlayer::Update(void)
 
 
 
+	return OBJ_NOEVENT;
+}
 
+void CPlayer::Late_Update(void)
+{
 }
 
 void CPlayer::Render(HDC hDC)

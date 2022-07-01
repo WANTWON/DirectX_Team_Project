@@ -1,14 +1,11 @@
 #pragma once
 #include "Obj.h"
-class CMonster :
+class CMyButton :
 	public CObj
 {
 public:
-	CMonster();
-	virtual ~CMonster();
-
-public:
-	void		Set_Player(CObj* pPlayer) { m_pPlayer = pPlayer; }
+	CMyButton();
+	virtual ~CMyButton();
 
 public:
 	virtual void Initialize(void) override;
@@ -18,7 +15,7 @@ public:
 	virtual void Release(void) override;
 
 private:
-	CObj*			m_pPlayer = nullptr;
-
+	RECT m_tRect[4];
+	POINT		Pt;
 };
 
