@@ -76,8 +76,11 @@
     <Filter Include="01. Obj\03. Button">
       <UniqueIdentifier>{6f9a38cf-0a93-406d-868d-4d79f3eb47f7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\NewFilter1">
-      <UniqueIdentifier>{9cd28712-d180-4273-97c6-715c748e139a}</UniqueIdentifier>
+    <Filter Include="01. Obj\04. Obj_4">
+      <UniqueIdentifier>{ca3eb14b-f9a7-4e0c-bf3d-556295796431}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\04. Obj_4\40. Player">
+      <UniqueIdentifier>{f79fc53e-e33f-4071-9319-39474c2378f3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +171,9 @@
     <ClInclude Include="MyBmp.h">
       <Filter>98. Design\BmpMgr\MyBmp</Filter>
     </ClInclude>
+    <ClInclude Include="Player4.h">
+      <Filter>01. Obj\04. Obj_4\40. Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -229,6 +235,9 @@
     </ClCompile>
     <ClCompile Include="MyBmp.cpp">
       <Filter>98. Design\BmpMgr\MyBmp</Filter>
+    </ClCompile>
+    <ClCompile Include="Player4.cpp">
+      <Filter>01. Obj\04. Obj_4\40. Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

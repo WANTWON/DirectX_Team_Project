@@ -48,7 +48,7 @@ void CMyMenu::Late_Update(void)
 
 void CMyMenu::Release(void)
 {
-	CObjMgr::Get_Instance()->Delete_ID(OBJ_BUTTON);
+	//CObjMgr::Get_Instance()->Delete_ID(OBJ_BUTTON);
 }
 
 void CMyMenu::Render(HDC hDC)

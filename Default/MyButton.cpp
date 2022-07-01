@@ -37,7 +37,7 @@ int CMyButton::Update(void)
 
 void CMyButton::Late_Update(void)
 {
-	if (this == nullptr)
+	//if (this == nullptr)
 		//return;
 
 	POINT		Pt;
@@ -69,6 +69,7 @@ void CMyButton::Late_Update(void)
 
 void CMyButton::Render(HDC hDC)
 {
+	
 	for (size_t i = 0; i< 4; ++i)
 		Rectangle(hDC, m_tRect[i].left, m_tRect[i].top, m_tRect[i].right, m_tRect[i].bottom);
 
@@ -76,5 +77,5 @@ void CMyButton::Render(HDC hDC)
 
 void CMyButton::Release(void)
 {
-
+	
 }

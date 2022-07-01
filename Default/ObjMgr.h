@@ -22,12 +22,7 @@ public:
 
 public:
 	CObj* Get_Player() { return m_pObjList[OBJ_PLAYER].front(); }
-	list<CObj*> Get_listPlayer() { return m_pObjList[OBJ_PLAYER]; }
-	list<CObj*> Get_Monsters() { return m_pObjList[OBJ_MONSTER]; }
-	list<CObj*> Get_Blocks() { return m_pObjList[OBJ_BLOCK]; }
-	list<CObj*> Get_Items() { return m_pObjList[OBJ_ITEM]; }
-	list<CObj*> Get_Bullets() { return m_pObjList[OBJ_BULLET]; }
-
+	list<CObj*>* Get_IDlist(OBJID _eID) { return &m_pObjList[_eID]; }
 	CObj* Get_Target(OBJID _ID, CObj* pObj);
 
 public:

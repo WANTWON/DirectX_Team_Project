@@ -40,18 +40,22 @@ void CSceneMgr::Scene_Change(SCENEID eScene)
 			break;
 
 		case SC_STAGE1:
+			Reset_Stage();
 			m_pScene = new CStage1;
 			break;
 
 		case SC_STAGE2:
+			Reset_Stage();
 			m_pScene = new CStage2;
 			break;
 
 		case SC_STAGE3:
+			Reset_Stage();
 			m_pScene = new CStage3;
 			break;
 
 		case SC_STAGE4:
+			Reset_Stage();
 			m_pScene = new CStage4;
 			break;
 		}
@@ -80,4 +84,27 @@ void CSceneMgr::Render(HDC hDC)
 void CSceneMgr::Release(void)
 {
 	Safe_Delete<CScene*>(m_pScene);
+}
+
+
+void CSceneMgr::Reset_Stage()
+{
+	auto& iterItem = CObjMgr::Get_Instance()->Get_IDlist(OBJ_ITEM)->begin();
+	auto& iterBlock = CObjMgr::Get_Instance()->Get_IDlist(OBJ_BLOCK)->begin();
+	auto& iterMonster = CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)->begin();
+	auto& iterButton = CObjMgr::Get_Instance()->Get_IDlist(OBJ_BUTTON)->begin();
+
+	for (; iterItem != CObjMgr::Get_Instance()->Get_IDlist(OBJ_ITEM)->end(); ++iterItem)
+		Safe_Delete<CObj*>(*iterItem);
+	for (; iterBlock != CObjMgr::Get_Instance()->Get_IDlist(OBJ_BLOCK)->end(); ++iterBlock)
+		Safe_Delete<CObj*>(*iterBlock);
+	for (; iterMonster != CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)->end(); ++iterMonster)
+		Safe_Delete<CObj*>(*iterMonster);
+	for (; iterButton != CObjMgr::Get_Instance()->Get_IDlist(OBJ_BUTTON)->end(); ++iterButton)
+		Safe_Delete<CObj*>(*iterButton);
+
+	CObjMgr::Get_Instance()->Get_IDlist(OBJ_ITEM)->clear();
+	CObjMgr::Get_Instance()->Get_IDlist(OBJ_BLOCK)->clear();
+	CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)->clear();
+	CObjMgr::Get_Instance()->Get_IDlist(OBJ_BUTTON)->clear();
 }
