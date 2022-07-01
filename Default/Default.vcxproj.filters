@@ -76,6 +76,9 @@
     <Filter Include="01. Obj\03. Button">
       <UniqueIdentifier>{6f9a38cf-0a93-406d-868d-4d79f3eb47f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\NewFilter1">
+      <UniqueIdentifier>{9cd28712-d180-4273-97c6-715c748e139a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

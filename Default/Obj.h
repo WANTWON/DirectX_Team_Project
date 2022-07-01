@@ -31,7 +31,7 @@ public:
 protected:
 	INFO		m_tInfo;
 	TCHAR*		m_pFrameKey;
-
+	int m_iHp;
 	float		m_fSpeed;
 };
 
