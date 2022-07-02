@@ -19,6 +19,8 @@ CPlayer4::~CPlayer4()
 
 void CPlayer4::Initialize(void)
 {
+
+
 	m_tInfo.vSIze = { 50.f, 50.f, 0.f };
 	m_tInfo.vPos = { 400.f, 500.f, 0.f };
 	m_tInfo.vLook = { 0.f, -1.f, 0.f };
@@ -39,11 +41,11 @@ void CPlayer4::Initialize(void)
 	m_pOriginPosin = m_pPosin;
 
 	D3DXMatrixIdentity(&m_tInfo.matWorld); 
-
 }
 
 int CPlayer4::Update(void)
 {
+
 	D3DXMATRIX matScale, matRotZ, matTrans;
 
 	Key_Input();
@@ -81,6 +83,7 @@ void CPlayer4::Late_Update(void)
 
 void CPlayer4::Render(HDC hDC)
 {
+
 	MoveToEx(hDC, m_pPoint[0].x, m_pPoint[0].y, nullptr);
 
 	for (int i = 0; i < 4; ++i)
@@ -96,7 +99,6 @@ void CPlayer4::Render(HDC hDC)
 
 	MoveToEx(hDC, m_pPosin.x, m_pPosin.y, nullptr);
 	LineTo(hDC, m_tInfo.vPos.x, m_tInfo.vPos.y);
-
 }
 
 void CPlayer4::Release(void)
@@ -119,6 +121,7 @@ void CPlayer4::Key_Input(void)
 
 	if (CKeyMgr::Get_Instance()->Key_Pressing(VK_UP))
 	{
+
 		D3DXVec3TransformNormal(&m_tInfo.vDir, &m_tInfo.vLook, &m_tInfo.matWorld); 
 		m_tInfo.vPos += m_tInfo.vDir* m_fSpeed;
 	}

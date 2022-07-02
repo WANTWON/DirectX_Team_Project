@@ -10,29 +10,27 @@ public:
 public:
 	virtual		void	Initialize(void) override;
 	virtual		int		Update(void) override;
+	virtual		void	Late_Update(void) override;
 	virtual		void	Render(HDC hDC) override;
-	virtual		void	 Release(void) override;
+	virtual		void	Release(void) override;
 
 private:
 	void			Key_Input(void);
-	//CObj*			Create_Bullet(DIRECTION eDir);
-
-	D3DXVECTOR3		m_vPoint[4];
-	D3DXVECTOR3		m_vOriginPoint[4];
-
-	D3DXVECTOR3		m_vGunPoint;
-	D3DXVECTOR3		m_vOriginGunPoint;
-	float			m_fPosinAngle;
-	D3DXMATRIX		matWorld2;
-	D3DXVECTOR3		vBDir;
-	float			m_fAngle;
-	bool			m_bDead;
+	CObj*			Create_Bullet(DIRECTION eDir);
 
 private:
-	//list<CObj*>*		m_pBullet;
-	DWORD				m_dBulletTime;
+	D3DXVECTOR3		m_vPoint[4];
+	D3DXVECTOR3		m_vOriginPoint[4];
+	D3DXVECTOR3		m_vGunPoint;
+	D3DXVECTOR3		m_vOriginGunPoint;
+	D3DXVECTOR3		vBDir;
+	
+	D3DXMATRIX		matWorld2;
 
-
-
+	float			m_fPosinAngle;
+	float			m_fAngle;
+	DWORD			m_dBulletTime;
+	bool			m_bDead;
+	list<CObj*>*	m_pBullet;
 };
 
