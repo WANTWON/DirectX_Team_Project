@@ -17,11 +17,18 @@ public:
 private:
 	void		Key_Input(void);
 	void		Update_Pos();
+	void		Update_Rect();
+	void		Ckeck_Rect();
 private:
-	DWORD m_dTime;
-	float		m_fAngle;
+	RECT				m_rc[2];
+	DWORD				m_dTime;
+	DWORD				m_dDeadTime;
+	float				m_fAngle;
 	D3DXVECTOR3			m_vPoint[4];
 	D3DXVECTOR3			m_vOriginPoint[4];
-	list<D3DXVECTOR3*>  m_pvPos;
-	int			m_iTailSize;
+	float				m_iTailSize;
+	bool				m_bDead;
+	bool				m_bDeadTime;
+	bool				m_Clear;
+	int					m_iScore;
 };

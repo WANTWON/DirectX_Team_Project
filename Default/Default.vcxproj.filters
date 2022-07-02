@@ -97,6 +97,9 @@
     <Filter Include="01. Obj\JAEHUN\01. Tail">
       <UniqueIdentifier>{9e2e2873-51fe-4797-baba-45cff14df9f5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\JAEHUN\02.Item">
+      <UniqueIdentifier>{0de78ebe-aa56-4ee8-ae7c-08a7e87ac7e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -198,6 +201,9 @@
     <ClInclude Include="Tail.h">
       <Filter>01. Obj\JAEHUN\01. Tail</Filter>
     </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>01. Obj\JAEHUN\02.Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -271,6 +277,9 @@
     </ClCompile>
     <ClCompile Include="Tail.cpp">
       <Filter>01. Obj\JAEHUN\01. Tail</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>01. Obj\JAEHUN\02.Item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
