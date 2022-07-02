@@ -88,6 +88,15 @@
     <Filter Include="01. Obj\05. Obj_2\00. Player2">
       <UniqueIdentifier>{d1ab4a51-3336-42de-9d5c-084a695a3ea0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\JAEHUN">
+      <UniqueIdentifier>{797d8d67-0c54-4099-8430-5d71c598b7ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\JAEHUN\00. Player1">
+      <UniqueIdentifier>{f515df35-c5b6-4328-af2e-387a473bab05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\JAEHUN\01. Tail">
+      <UniqueIdentifier>{9e2e2873-51fe-4797-baba-45cff14df9f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -183,6 +192,12 @@
     <ClInclude Include="Player2.h">
       <Filter>01. Obj\05. Obj_2\00. Player2</Filter>
     </ClInclude>
+    <ClInclude Include="Player1.h">
+      <Filter>01. Obj\JAEHUN\00. Player1</Filter>
+    </ClInclude>
+    <ClInclude Include="Tail.h">
+      <Filter>01. Obj\JAEHUN\01. Tail</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -250,6 +265,12 @@
     </ClCompile>
     <ClCompile Include="Player2.cpp">
       <Filter>01. Obj\05. Obj_2\00. Player2</Filter>
+    </ClCompile>
+    <ClCompile Include="Player1.cpp">
+      <Filter>01. Obj\JAEHUN\00. Player1</Filter>
+    </ClCompile>
+    <ClCompile Include="Tail.cpp">
+      <Filter>01. Obj\JAEHUN\01. Tail</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
