@@ -97,6 +97,21 @@
     <Filter Include="01. Obj\JAEHUN\01 Tail">
       <UniqueIdentifier>{7d89b56a-de18-4d35-b40a-0bc0e4697de9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\05. Obj_2\01. Bullet2">
+      <UniqueIdentifier>{b77ea457-7b54-4f43-8ce9-17b8cc317f8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\05. Obj_2\02. Monster2">
+      <UniqueIdentifier>{e38ea39d-3117-49ec-978c-7e24027d1ce8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\05. Obj_2\02. Monster2\01. NormalMonster">
+      <UniqueIdentifier>{5bb2963d-a3bf-4b0e-80ba-82b703fd6fd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\05. Obj_2\02. Monster2\02. PosinMonster">
+      <UniqueIdentifier>{46f561bb-d1b4-49da-9e1a-566252cbbc6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\05. Obj_2\03. Item2">
+      <UniqueIdentifier>{4c0e3609-db8e-4cfe-89e0-c1ed1a0a6159}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -201,6 +216,18 @@
     <ClInclude Include="Bullet4.h">
       <Filter>01. Obj\04. Obj_4\41. Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet2.h">
+      <Filter>01. Obj\05. Obj_2\01. Bullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster2.h">
+      <Filter>01. Obj\05. Obj_2\02. Monster2\01. NormalMonster</Filter>
+    </ClInclude>
+    <ClInclude Include="PosinMonster2.h">
+      <Filter>01. Obj\05. Obj_2\02. Monster2\02. PosinMonster</Filter>
+    </ClInclude>
+    <ClInclude Include="Item2.h">
+      <Filter>01. Obj\05. Obj_2\03. Item2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -277,6 +304,18 @@
     </ClCompile>
     <ClCompile Include="Bullet4.cpp">
       <Filter>01. Obj\04. Obj_4\41. Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet2.cpp">
+      <Filter>01. Obj\05. Obj_2\01. Bullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster2.cpp">
+      <Filter>01. Obj\05. Obj_2\02. Monster2\01. NormalMonster</Filter>
+    </ClCompile>
+    <ClCompile Include="PosinMonster2.cpp">
+      <Filter>01. Obj\05. Obj_2\02. Monster2\02. PosinMonster</Filter>
+    </ClCompile>
+    <ClCompile Include="Item2.cpp">
+      <Filter>01. Obj\05. Obj_2\03. Item2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
