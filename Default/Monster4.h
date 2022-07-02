@@ -14,13 +14,18 @@ public:
 	virtual void Render(HDC hDC) override;
 	virtual void Release(void) override;
 
+public:
+	void Set_DirVector(D3DXVECTOR3 vDir) { m_pDirVector = vDir; }
+
 private:
-	D3DXVECTOR3	m_pPoint[4];
-	D3DXVECTOR3	m_pOriginPoint[4];
+	D3DXVECTOR3	m_pPoint[8];
+	D3DXVECTOR3	m_pOriginPoint[8];
 
 	D3DXVECTOR3	m_pOriginPos;
 
-	bool m_bDead;
+	D3DXVECTOR3 m_pDirVector;
+
+	bool m_bMove;
 	float m_fAngle = 0;
 };
 

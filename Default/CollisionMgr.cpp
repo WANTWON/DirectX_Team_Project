@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "CollisionMgr.h"
+#include "Monster4.h"
 
 RECT rc = {};
 
@@ -129,4 +130,25 @@ bool CCollisionMgr::Check_Rect(CObj * Sour, CObj * Dest, float * _pX, float * _p
 	}
 	else
 		return false;
+}
+
+bool CCollisionMgr::Collision_Sphere_with_Monster4(list<CObj*> Sour, CObj * Dest)
+{
+	for (auto& Sour_iter = Sour.begin(); Sour_iter != Sour.end(); )
+	{
+		if ((*Sour_iter)->Get_Info().vPos == Dest->Get_Info().vPos)
+			continue;
+
+			if ((Dest!= nullptr) && (ChecK_Sphere(*Sour_iter, Dest)))
+			{
+				D3DXVECTOR3 vTemp = Dest->Get_Info().vPos - (*Sour_iter)->Get_Info().vPos;
+				D3DXVec3Normalize(&vTemp, &vTemp);
+				(*Sour_iter)->Set_bDead();
+				dynamic_cast<CMonster4*>(Dest)->Set_DirVector(vTemp);
+				return true;
+			}
+			
+		Sour_iter++;
+	}
+	return false;
 }

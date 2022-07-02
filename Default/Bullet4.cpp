@@ -27,15 +27,21 @@ void CBullet4::Initialize(void)
 int CBullet4::Update(void)
 {
 
+	if (m_bDead)
+		return OBJ_DEAD;
+
 	if (!m_bCount)
 	{
-		m_vPoint[0] = { m_tInfo.vPos.x - m_tInfo.vSIze.x*0.5f, m_tInfo.vPos.y - m_tInfo.vSIze.y*0.5f, 0.f };
-		m_vPoint[1] = { m_tInfo.vPos.x + m_tInfo.vSIze.x*0.5f, m_tInfo.vPos.y - m_tInfo.vSIze.y*0.5f, 0.f };
-		m_vPoint[2] = { m_tInfo.vPos.x + m_tInfo.vSIze.x*0.5f, m_tInfo.vPos.y + m_tInfo.vSIze.y*0.5f, 0.f };
-		m_vPoint[3] = { m_tInfo.vPos.x - m_tInfo.vSIze.x*0.5f, m_tInfo.vPos.y + m_tInfo.vSIze.y*0.5f, 0.f };
+		m_vPoint[0] = { m_tInfo.vPos.x - m_tInfo.vSIze.x*0.25f, m_tInfo.vPos.y - m_tInfo.vSIze.y*0.5f, 0.f };
+		m_vPoint[1] = { m_tInfo.vPos.x + m_tInfo.vSIze.x*0.25f, m_tInfo.vPos.y - m_tInfo.vSIze.y*0.5f, 0.f };
+		m_vPoint[2] = { m_tInfo.vPos.x + m_tInfo.vSIze.x*0.5f, m_tInfo.vPos.y - m_tInfo.vSIze.y*0.25f, 0.f };
+		m_vPoint[3] = { m_tInfo.vPos.x + m_tInfo.vSIze.x*0.5f, m_tInfo.vPos.y + m_tInfo.vSIze.y*0.25f, 0.f };
+		m_vPoint[4] = { m_tInfo.vPos.x + m_tInfo.vSIze.x*0.25f, m_tInfo.vPos.y + m_tInfo.vSIze.y*0.5f, 0.f };
+		m_vPoint[5] = { m_tInfo.vPos.x - m_tInfo.vSIze.x*0.25f, m_tInfo.vPos.y + m_tInfo.vSIze.y*0.5f, 0.f };
+		m_vPoint[6] = { m_tInfo.vPos.x - m_tInfo.vSIze.x*0.5f, m_tInfo.vPos.y + m_tInfo.vSIze.y*0.25f, 0.f };
+		m_vPoint[7] = { m_tInfo.vPos.x - m_tInfo.vSIze.x*0.5f, m_tInfo.vPos.y - m_tInfo.vSIze.y*0.25f, 0.f };
 
-
-		for (int i = 0; i < 4; ++i)
+		for (int i = 0; i < 8; ++i)
 		{
 			m_vOriginPoint[i] = m_vPoint[i];
 		}
@@ -55,7 +61,7 @@ int CBullet4::Update(void)
 
 	 m_tInfo.matWorld = matScale* matRotZ *matTrans;
 
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < 8; ++i)
 	{
 		m_vPoint[i] = m_vOriginPoint[i];
 		m_vPoint[i] -= m_vOriginPos;
@@ -86,9 +92,11 @@ void CBullet4::Late_Update(void)
 	
 	if (m_tInfo.vPos.y < 0)
 	{
-	
 		m_tInfo.vDir.y *= -1;
 	}
+
+	if (m_tInfo.vPos.y > WINCY)
+		m_bDead = true;
 		
 }
 
@@ -96,12 +104,12 @@ void CBullet4::Render(HDC hDC)
 {
 	MoveToEx(hDC, m_vPoint[0].x, m_vPoint[0].y, nullptr);
 
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < 8; ++i)
 	{
 		LineTo(hDC, m_vPoint[i].x, m_vPoint[i].y);
 
 		if (i < 2)
-			Ellipse(hDC, m_vPoint[i].x - 5, m_vPoint[i].y - 5, m_vPoint[i].x + 5, m_vPoint[i].y + 5);
+			Ellipse(hDC, m_vPoint[i].x - 2, m_vPoint[i].y - 2, m_vPoint[i].x + 2, m_vPoint[i].y + 2);
 	}
 	LineTo(hDC, m_vPoint[0].x, m_vPoint[0].y);
 }
