@@ -115,6 +115,9 @@
     <Filter Include="01. Obj\04. Obj_4\43. Goal">
       <UniqueIdentifier>{afbb60bc-fe13-4aef-86c9-5531d64519de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\JAEHUN\02.Item">
+      <UniqueIdentifier>{0de78ebe-aa56-4ee8-ae7c-08a7e87ac7e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -225,13 +228,16 @@
     <ClInclude Include="Item2.h">
       <Filter>01. Obj\02. Obj_2\04. Item2</Filter>
     </ClInclude>
-    <ClInclude Include="Monster2.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="MainGame.h">
       <Filter>00. MainGame</Filter>
     </ClInclude>
     <ClInclude Include="PosinMonster2.h">
+      <Filter>01. Obj\02. Obj_2\03. Monster2</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>01. Obj\JAEHUN\02.Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster2.h">
       <Filter>01. Obj\02. Obj_2\03. Monster2</Filter>
     </ClInclude>
   </ItemGroup>
@@ -320,10 +326,13 @@
     <ClCompile Include="Item2.cpp">
       <Filter>01. Obj\02. Obj_2\04. Item2</Filter>
     </ClCompile>
-    <ClCompile Include="PosinMonster2.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Monster2.cpp">
+      <Filter>01. Obj\02. Obj_2\03. Monster2</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>01. Obj\JAEHUN\02.Item</Filter>
+    </ClCompile>
+    <ClCompile Include="PosinMonster2.cpp">
       <Filter>01. Obj\02. Obj_2\03. Monster2</Filter>
     </ClCompile>
   </ItemGroup>

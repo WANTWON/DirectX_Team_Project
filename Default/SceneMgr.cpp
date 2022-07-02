@@ -36,6 +36,7 @@ void CSceneMgr::Scene_Change(SCENEID eScene)
 		switch (m_eCurScene)
 		{
 		case SC_MENU:
+			Reset_Stage();
 			m_pScene = new CMyMenu;
 			break;
 
@@ -89,11 +90,13 @@ void CSceneMgr::Release(void)
 
 void CSceneMgr::Reset_Stage()
 {
+
+
 	auto& iterItem = CObjMgr::Get_Instance()->Get_IDlist(OBJ_ITEM)->begin();
 	auto& iterBlock = CObjMgr::Get_Instance()->Get_IDlist(OBJ_BLOCK)->begin();
 	auto& iterMonster = CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)->begin();
 	auto& iterButton = CObjMgr::Get_Instance()->Get_IDlist(OBJ_BUTTON)->begin();
-
+	
 	for (; iterItem != CObjMgr::Get_Instance()->Get_IDlist(OBJ_ITEM)->end(); ++iterItem)
 		Safe_Delete<CObj*>(*iterItem);
 	for (; iterBlock != CObjMgr::Get_Instance()->Get_IDlist(OBJ_BLOCK)->end(); ++iterBlock)
