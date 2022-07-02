@@ -1,8 +1,11 @@
 #include "stdafx.h"
 #include "Bullet4.h"
+#include "CollisionMgr.h"
+#include "ObjMgr.h"
+#include "Player4.h"
 
 
-CBullet4::CBullet4() : m_pPlayer(nullptr), m_bCount(false), XScale(1), YScale(1), ZScale(1)
+CBullet4::CBullet4() : m_pPlayer(nullptr), m_bCount(false), XScale(1), YScale(1), ZScale(1), m_bDeadCount(false)
 {
 }
 
@@ -84,20 +87,50 @@ int CBullet4::Update(void)
 
 void CBullet4::Late_Update(void)
 {
-	if (m_tInfo.vPos.x > WINCX || m_tInfo.vPos.x < 0)
+	for (int i = 0; i < 8; ++i)
 	{
-		m_fAngle *= -1;
-		m_tInfo.vDir.x *= -1;
-	}
-	
-	if (m_tInfo.vPos.y < 0)
-	{
-		m_tInfo.vDir.y *= -1;
+		if (m_vPoint[i].x > WINCX || m_vPoint[i].x < 0)
+		{
+			if (m_bDeadCount)
+				break;
+			m_fAngle *= -1;
+			m_tInfo.vDir.x *= -1;
+			m_bDeadCount = true;
+		}
+		else if (m_vPoint[i].y < 0 )
+		{
+			if (m_bDeadCount)
+				break;
+			m_tInfo.vDir.y *= -1;
+			m_bDeadCount = true;
+
+		}
 	}
 
 	if (m_tInfo.vPos.y > WINCY)
 		m_bDead = true;
-		
+
+	if (m_tInfo.vPos.x > 0 + m_tInfo.vSIze.x && m_tInfo.vPos.x < WINCX - m_tInfo.vSIze.x
+		&& m_tInfo.vPos.y >0 + m_tInfo.vSIze.y &&m_tInfo.vPos.y < WINCY - m_tInfo.vSIze.y)
+		m_bDeadCount = false;
+
+	if (CCollisionMgr::Collision_Sphere(*(CObjMgr::Get_Instance()->Get_IDlist(OBJ_BLOCK)), this))
+	{
+		m_bDead = true;
+		dynamic_cast<CPlayer4*>((*CObjMgr::Get_Instance()->Get_IDlist(OBJ_PLAYER)).front())->Set_Score(10);
+	}
+	
+
+	if (m_bMove)
+	{
+		m_fAngle += D3DXToRadian(1);
+		m_tInfo.vPos += m_tInfo.vDir*m_fSpeed;
+		m_fSpeed -= 0.01f;
+		//m_fMoveAngle -= 0.01f;
+
+		if (m_fSpeed <= 0)
+			m_bMove = false;
+	}
 }
 
 void CBullet4::Render(HDC hDC)

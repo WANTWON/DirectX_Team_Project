@@ -20,12 +20,13 @@ public:
 private:
 	D3DXVECTOR3	m_pPoint[8];
 	D3DXVECTOR3	m_pOriginPoint[8];
-
 	D3DXVECTOR3	m_pOriginPos;
-
 	D3DXVECTOR3 m_pDirVector;
 
+
 	bool m_bMove;
+	bool m_bCount;
 	float m_fAngle = 0;
+	float m_fMoveAngle = 0;
 };
 

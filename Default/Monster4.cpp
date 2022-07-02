@@ -3,9 +3,10 @@
 #include "CollisionMgr.h"
 #include "ObjMgr.h"
 #include "Obj.h"
+#include "Player4.h"
 
 
-CMonster4::CMonster4() : m_bMove(false)
+CMonster4::CMonster4() : m_bMove(false), m_bCount(false)
 {
 
 }
@@ -18,7 +19,7 @@ CMonster4::~CMonster4()
 
 void CMonster4::Initialize(void)
 {
-	m_tInfo.vSIze = { 50.f, 50.f , 0.f };
+	m_tInfo.vSIze = { 25.f, 25.f , 0.f };
 	m_tInfo.vPos = { 400.f, 300.f, 0.f };
 	m_pOriginPos = m_tInfo.vPos;
 	m_pPoint[0] = { m_tInfo.vPos.x - m_tInfo.vSIze.x*0.25f, m_tInfo.vPos.y - m_tInfo.vSIze.y*0.5f, 0.f };
@@ -61,35 +62,58 @@ void CMonster4::Late_Update(void)
 	//if (CCollisionMgr::Collision_Sphere(*(CObjMgr::Get_Instance()->Get_IDlist(OBJ_BULLET)), *(CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER))))
 		//m_bDead = true;
 
-
-	if (m_tInfo.vPos.x > WINCX || m_tInfo.vPos.x < 0)
+	for (int i = 0; i < 8; ++i)
 	{
-		m_fAngle *= -1;
-		m_pDirVector.x *= -1;
+		if (m_pPoint[i].x > WINCX || m_pPoint[i].x < 0)
+		{
+			if (m_bCount)
+				break;
+			m_fAngle *= -1;
+			m_pDirVector.x *= -1;
+			m_bCount = true;
+		}
+		else if (m_pPoint[i].y < 0 || m_pPoint[i].y > WINCY)
+		{
+			if (m_bCount)
+				break;
+			m_pDirVector.y *= -1;
+			m_bCount = true;
+
+		}
 	}
 
-	if (m_tInfo.vPos.y < 0)
+	if(m_tInfo.vPos.x > 0 + m_tInfo.vSIze.x*0.5f && m_tInfo.vPos.x < WINCX - m_tInfo.vSIze.x*0.5f 
+		&& m_tInfo.vPos.y >0 + m_tInfo.vSIze.y*0.5f && m_tInfo.vPos.y < WINCY - m_tInfo.vSIze.y*0.5f)
+		m_bCount = false;
+
+	if (CCollisionMgr::Collision_Sphere(*(CObjMgr::Get_Instance()->Get_IDlist(OBJ_BLOCK)), this))
 	{
-		m_pDirVector.y *= -1;
+		m_bDead = true;
+		dynamic_cast<CPlayer4*>((*CObjMgr::Get_Instance()->Get_IDlist(OBJ_PLAYER)).front())->Set_Score(100);
 	}
+		
+
 
 	if (CCollisionMgr::Collision_Sphere_with_Monster4(*(CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)), this))
 	{
 		m_bMove = true;
 		m_fSpeed = 3.f;
+		m_fMoveAngle = 3.f;
 	}
-
-
 	if (CCollisionMgr::Collision_Sphere_with_Bullet(*(CObjMgr::Get_Instance()->Get_IDlist(OBJ_BULLET)), this))
 	{
 		m_bMove = true;
 		m_fSpeed = 3.f;
+		m_fMoveAngle = 3.f;
+
 	}
 
 	if (m_bMove)
 	{
+		m_fAngle += D3DXToRadian(m_fMoveAngle);
 		m_tInfo.vPos += m_pDirVector*m_fSpeed;
 		m_fSpeed -= 0.01f;
+		m_fMoveAngle -= 0.01f;
 
 		if (m_fSpeed <= 0)
 			m_bMove = false;

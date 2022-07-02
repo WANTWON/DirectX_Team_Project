@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "CollisionMgr.h"
 #include "Monster4.h"
+#include "Bullet4.h"
 
 RECT rc = {};
 
@@ -133,6 +134,21 @@ bool CCollisionMgr::Check_Rect(CObj * Sour, CObj * Dest, float * _pX, float * _p
 		return false;
 }
 
+bool CCollisionMgr::Collision_Sphere(list<CObj*> Sour, CObj * Dest)
+{
+	for (auto& Sour_iter = Sour.begin(); Sour_iter != Sour.end(); )
+	{
+		int iter_count = 0;
+		
+			if ((Dest != nullptr) && (ChecK_Sphere(*Sour_iter, Dest)))
+			{
+				return true;
+			}
+		Sour_iter++;
+	}
+	return false;
+}
+
 bool CCollisionMgr::Collision_Sphere_with_Monster4(list<CObj*> Sour, CObj * Dest)
 {
 	for (auto& Sour_iter = Sour.begin(); Sour_iter != Sour.end(); )
@@ -178,8 +194,9 @@ bool CCollisionMgr::Collision_Sphere_with_Bullet(list<CObj*> Sour, CObj * Dest)
 		{
 			D3DXVECTOR3 vTemp = Dest->Get_Info().vPos - (*Sour_iter)->Get_Info().vPos;
 			D3DXVec3Normalize(&vTemp, &vTemp);
-			(*Sour_iter)->Set_bDead();
 			dynamic_cast<CMonster4*>(Dest)->Set_DirVector(vTemp);
+			dynamic_cast<CBullet4*>(*Sour_iter)->Set_DirVector(-vTemp);
+			dynamic_cast<CBullet4*>(*Sour_iter)->Set_bMove();
 			return true;
 		}
 
