@@ -80,14 +80,13 @@ void CBullet4::Late_Update(void)
 {
 	if (m_tInfo.vPos.x > WINCX || m_tInfo.vPos.x < 0)
 	{
-		m_fAngle =  - m_fAngle;
+		m_fAngle *= -1;
 		m_tInfo.vDir.x *= -1;
 	}
 	
 	if (m_tInfo.vPos.y < 0)
 	{
-		m_fAngle = 180 - (m_fAngle);
-
+	
 		m_tInfo.vDir.y *= -1;
 	}
 		
