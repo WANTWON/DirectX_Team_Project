@@ -114,20 +114,23 @@ void CPlayer1::Key_Input(void)
 
 void CPlayer1::Update_Pos()
 {
-	
-	m_pvPos.push_front(&m_tInfo.vPos);
+	if (m_dTime + 100 > GetTickCount())
+	{
+		m_pvPos.push_front(&m_tInfo.vPos);
 
-	if (CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)->size() < m_pvPos.size())
-	{
-		for (; CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)->size() == m_pvPos.size();)
-			m_pvPos.pop_back();
-	}
-	
-	auto& iterMonster = CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)->begin();
-	auto& iterPos = m_pvPos.begin();
-	for (; iterMonster != CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)->end(); ++iterMonster, ++iterPos)
-	{
-		(*iterMonster)->Set_Pos((*iterPos)->x - m_tInfo.vDir.x * 110.f, (*iterPos)->y - m_tInfo.vDir.y * 110.f);
+		if (CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)->size() < m_pvPos.size())
+		{
+			for (; CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)->size() == m_pvPos.size();)
+				m_pvPos.pop_back();
+		}
+
+		auto& iterMonster = CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)->begin();
+		auto& iterPos = m_pvPos.begin();
+		for (; iterMonster != CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)->end(); ++iterMonster, ++iterPos)
+		{
+			(*iterMonster)->Set_Pos((*iterPos)->x - m_tInfo.vDir.x * 110.f, (*iterPos)->y - m_tInfo.vDir.y * 110.f);
+		}
+		m_dTime = GetTickCount();
 	}
 	//if (m_iTailSize != 0)
 	//{
