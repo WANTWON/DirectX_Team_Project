@@ -76,6 +76,15 @@
     <Filter Include="01. Obj\03. Button">
       <UniqueIdentifier>{6f9a38cf-0a93-406d-868d-4d79f3eb47f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\JAEHUN">
+      <UniqueIdentifier>{a3c6eebb-6772-4857-b6e9-6e620695eb0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\JAEHUN\00.Player1">
+      <UniqueIdentifier>{874f63df-5979-4f19-b9f2-a2308ecc9a2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\JAEHUN\01.Tail">
+      <UniqueIdentifier>{5dfabb40-1f8d-4699-b61a-57db0ebcb29b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -165,6 +174,12 @@
     <ClInclude Include="MyBmp.h">
       <Filter>98. Design\BmpMgr\MyBmp</Filter>
     </ClInclude>
+    <ClInclude Include="Player1.h">
+      <Filter>01. Obj\JAEHUN\00.Player1</Filter>
+    </ClInclude>
+    <ClInclude Include="Tail.h">
+      <Filter>01. Obj\JAEHUN\01.Tail</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -226,6 +241,12 @@
     </ClCompile>
     <ClCompile Include="MyBmp.cpp">
       <Filter>98. Design\BmpMgr\MyBmp</Filter>
+    </ClCompile>
+    <ClCompile Include="Player1.cpp">
+      <Filter>01. Obj\JAEHUN\00.Player1</Filter>
+    </ClCompile>
+    <ClCompile Include="Tail.cpp">
+      <Filter>01. Obj\JAEHUN\01.Tail</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

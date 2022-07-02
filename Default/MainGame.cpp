@@ -20,7 +20,6 @@ void CMainGame::Initialize(void)
 	hMemdc = CreateCompatibleDC(m_hDC);
 	hBitmap = CreateCompatibleBitmap(m_hDC, WINCX, WINCY);
 	hOldBitmap = (HBITMAP)SelectObject(hMemdc, hBitmap);
-//	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Back.bmp", L"Back");
 	CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
 }
 
@@ -48,10 +47,8 @@ void CMainGame::Render(void)
 	}
 
 
-
+	CSceneMgr::Get_Instance()->Render(hMemdc);
 	BitBlt(m_hDC, 0, 0, WINCX, WINCY, hMemdc, 0, 0, SRCCOPY);
-	CSceneMgr::Get_Instance()->Render(m_hDC);
-
 
 }
 

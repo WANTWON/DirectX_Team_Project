@@ -9,7 +9,7 @@ typedef struct tagInfo
 
 	D3DXVECTOR3		vLook;		// นๆวโ บคลอ
 	D3DXVECTOR3		vNormal;	// นýผฑ บคลอ
-	
+	D3DXMATRIX		matWorld;
 }INFO;
 
 
