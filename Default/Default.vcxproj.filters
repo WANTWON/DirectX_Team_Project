@@ -82,6 +82,21 @@
     <Filter Include="01. Obj\04. Obj_4\40. Player">
       <UniqueIdentifier>{f79fc53e-e33f-4071-9319-39474c2378f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\04. Obj_4\41. Bullet">
+      <UniqueIdentifier>{bf4df262-d2d5-4b47-92b8-8850e445187b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\02. Obj_2">
+      <UniqueIdentifier>{a7ce68e8-ca7d-4d00-bb27-ff79f485bd75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\JAEHUN">
+      <UniqueIdentifier>{778c7a5b-1b73-4c32-9797-1857c16408d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\JAEHUN\00. Player">
+      <UniqueIdentifier>{6a2477eb-6572-4a55-98ba-910e3ce48465}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\JAEHUN\01 Tail">
+      <UniqueIdentifier>{7d89b56a-de18-4d35-b40a-0bc0e4697de9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -98,9 +113,6 @@
     </ClInclude>
     <ClInclude Include="Default.h">
       <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="MainGame.h">
-      <Filter>00. MainGame</Filter>
     </ClInclude>
     <ClInclude Include="Define.h">
       <Filter>99. Header</Filter>
@@ -174,6 +186,18 @@
     <ClInclude Include="Player4.h">
       <Filter>01. Obj\04. Obj_4\40. Player</Filter>
     </ClInclude>
+    <ClInclude Include="Player2.h">
+      <Filter>01. Obj\02. Obj_2</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>01. Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="Player1.h">
+      <Filter>01. Obj\JAEHUN\00. Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Tail.h">
+      <Filter>01. Obj\JAEHUN\01 Tail</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -238,6 +262,15 @@
     </ClCompile>
     <ClCompile Include="Player4.cpp">
       <Filter>01. Obj\04. Obj_4\40. Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player2.cpp">
+      <Filter>01. Obj\02. Obj_2</Filter>
+    </ClCompile>
+    <ClCompile Include="Player1.cpp">
+      <Filter>01. Obj\JAEHUN\00. Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Tail.cpp">
+      <Filter>01. Obj\JAEHUN\01 Tail</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
