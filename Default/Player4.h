@@ -25,5 +25,6 @@ private:
 	D3DXVECTOR3	m_pOriginPosin;
 
 	float m_fAngle = 0;
+	float m_fPosinAngle = 0;
 };
 
