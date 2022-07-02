@@ -35,6 +35,11 @@ int CStage4::Update(void)
 
 void CStage4::Late_Update(void)
 {
+	if (CKeyMgr::Get_Instance()->Key_Down(VK_RETURN))
+	{
+		CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
+	}
+
 	CObjMgr::Get_Instance()->Late_Update();
 }
 

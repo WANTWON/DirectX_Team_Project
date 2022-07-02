@@ -5,6 +5,7 @@
 #include "Bullet4.h"
 #include "ObjMgr.h"
 #include "Obj.h"
+#include "SceneMgr.h"
 
 
 CPlayer4::CPlayer4()
@@ -45,11 +46,13 @@ void CPlayer4::Initialize(void)
 
 int CPlayer4::Update(void)
 {
-
-	D3DXMATRIX matScale, matRotZ, matTrans;
-
+	
 	Key_Input();
 
+	if (m_bDead)
+		return OBJ_DEAD;
+
+	D3DXMATRIX matScale, matRotZ, matTrans;
 	D3DXMatrixScaling(&matScale, 1.f, 1.f, 0.f);
 	D3DXMatrixRotationZ(&matRotZ, m_fAngle);
 	D3DXMatrixTranslation(&matTrans, m_tInfo.vPos.x, m_tInfo.vPos.y, m_tInfo.vPos.z);
@@ -139,4 +142,5 @@ void CPlayer4::Key_Input(void)
 		static_cast<CBullet4*>(pObj)->Set_Angle(m_fPosinAngle);
 		CObjMgr::Get_Instance()->Add_Object(OBJ_BULLET, pObj);
 	}
+
 }
