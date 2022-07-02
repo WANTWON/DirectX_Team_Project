@@ -112,6 +112,9 @@
     <Filter Include="01. Obj\02. Obj_2\04. Item2">
       <UniqueIdentifier>{4d36ff5f-31ac-4a18-be04-1c81780c569d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\04. Obj_4\43. Goal">
+      <UniqueIdentifier>{afbb60bc-fe13-4aef-86c9-5531d64519de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

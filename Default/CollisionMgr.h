@@ -15,5 +15,6 @@ public:
 
 
 	static bool Collision_Sphere_with_Monster4(list<CObj*> Sour, CObj* Dest);
+	static bool Collision_Sphere_with_Bullet(list<CObj*> Sour, CObj* Dest);
 };
 

@@ -73,8 +73,14 @@ void CMonster4::Late_Update(void)
 		m_pDirVector.y *= -1;
 	}
 
+	if (CCollisionMgr::Collision_Sphere_with_Monster4(*(CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)), this))
+	{
+		m_bMove = true;
+		m_fSpeed = 3.f;
+	}
 
-	if (CCollisionMgr::Collision_Sphere_with_Monster4(*(CObjMgr::Get_Instance()->Get_IDlist(OBJ_BULLET)), this))
+
+	if (CCollisionMgr::Collision_Sphere_with_Bullet(*(CObjMgr::Get_Instance()->Get_IDlist(OBJ_BULLET)), this))
 	{
 		m_bMove = true;
 		m_fSpeed = 3.f;
@@ -83,7 +89,7 @@ void CMonster4::Late_Update(void)
 	if (m_bMove)
 	{
 		m_tInfo.vPos += m_pDirVector*m_fSpeed;
-		m_fSpeed -= 0.02f;
+		m_fSpeed -= 0.01f;
 
 		if (m_fSpeed <= 0)
 			m_bMove = false;

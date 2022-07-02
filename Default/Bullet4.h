@@ -18,6 +18,7 @@ public:
 	virtual void Render(HDC hDC) override;
 	virtual void Release(void) override;
 
+	void Set_DirVector(D3DXVECTOR3 vDir) { m_pDirVector = vDir; }
 private:
 	CObj* m_pPlayer;
 
@@ -31,5 +32,7 @@ private:
 	float m_fAngle;
 
 	bool m_bCount;
+
+	D3DXVECTOR3 m_pDirVector;
 };
 

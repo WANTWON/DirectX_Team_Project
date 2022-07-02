@@ -66,7 +66,6 @@ int CPlayer4::Update(void)
 	
 
 	D3DXVECTOR3 vTemp = m_pOriginPosin;
-
 	vTemp -= {400, 500, 0.f};
 
 	m_pPosin.x = cosf(m_fPosinAngle)*vTemp.x - sinf(m_fPosinAngle)*vTemp.y;

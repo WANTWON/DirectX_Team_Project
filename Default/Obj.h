@@ -40,5 +40,7 @@ protected:
 	float		m_fSpeed;
 	RECT		m_tRect;
 	bool		m_bDead;
+
+	OBJID		m_eID;
 };
 

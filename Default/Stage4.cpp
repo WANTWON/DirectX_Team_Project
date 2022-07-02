@@ -21,6 +21,8 @@ void CStage4::Initialize(void)
 	
 	CObjMgr::Get_Instance()->Add_Object(OBJ_PLAYER, CAbstractFactory<CPlayer4>::Create(400, 500));
 	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create());
+	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(200, 200));
+
 
 }
 
@@ -38,6 +40,7 @@ void CStage4::Late_Update(void)
 
 void CStage4::Release(void)
 {
+	CObjMgr::Get_Instance()->Destroy_Instance();
 
 }
 
