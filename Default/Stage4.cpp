@@ -4,6 +4,7 @@
 #include "SceneMgr.h"
 #include "AbstractFactory.h"
 #include "Player4.h"
+#include "Monster4.h"
 
 CStage4::CStage4()
 {
@@ -18,7 +19,8 @@ CStage4::~CStage4()
 void CStage4::Initialize(void)
 {
 	
-	CObjMgr::Get_Instance()->Add_Object(OBJ_PLAYER, CAbstractFactory<CPlayer4>::Create(400, 300));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_PLAYER, CAbstractFactory<CPlayer4>::Create(400, 500));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create());
 
 }
 

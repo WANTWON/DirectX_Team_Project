@@ -1,11 +1,11 @@
 #pragma once
 #include "Obj.h"
-class CPlayer4 :
+class CMonster4 :
 	public CObj
 {
 public:
-	CPlayer4();
-	virtual ~CPlayer4();
+	CMonster4();
+	virtual ~CMonster4();
 
 public:
 	virtual void Initialize(void) override;
@@ -15,16 +15,12 @@ public:
 	virtual void Release(void) override;
 
 private:
-	void		Key_Input(void);
-
-private:
 	D3DXVECTOR3	m_pPoint[4];
 	D3DXVECTOR3	m_pOriginPoint[4];
 
-	D3DXVECTOR3	m_pPosin;
-	D3DXVECTOR3	m_pOriginPosin;
+	D3DXVECTOR3	m_pOriginPos;
 
+	bool m_bDead;
 	float m_fAngle = 0;
-	float m_fPosinAngle = 0;
 };
 
