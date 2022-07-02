@@ -158,6 +158,7 @@
     <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="BmpMgr.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Bullet4.h" />
     <ClInclude Include="CollisionMgr.h" />
     <ClInclude Include="Default.h" />
     <ClInclude Include="Define.h" />
@@ -191,6 +192,7 @@
   <ItemGroup>
     <ClCompile Include="BmpMgr.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Bullet4.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Default.cpp" />
     <ClCompile Include="KeyMgr.cpp" />

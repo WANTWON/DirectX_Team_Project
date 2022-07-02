@@ -198,6 +198,9 @@
     <ClInclude Include="Tail.h">
       <Filter>01. Obj\JAEHUN\01 Tail</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet4.h">
+      <Filter>01. Obj\04. Obj_4\41. Bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -271,6 +274,9 @@
     </ClCompile>
     <ClCompile Include="Tail.cpp">
       <Filter>01. Obj\JAEHUN\01 Tail</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet4.cpp">
+      <Filter>01. Obj\04. Obj_4\41. Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
