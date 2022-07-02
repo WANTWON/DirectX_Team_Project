@@ -81,15 +81,12 @@
     </Filter>
     <Filter Include="01. Obj\04. Obj_4\40. Player">
       <UniqueIdentifier>{f79fc53e-e33f-4071-9319-39474c2378f3}</UniqueIdentifier>
- </Filter>
-    <Filter Include="01. Obj\JAEHUN">
-      <UniqueIdentifier>{a3c6eebb-6772-4857-b6e9-6e620695eb0e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\JAEHUN\00.Player1">
-      <UniqueIdentifier>{874f63df-5979-4f19-b9f2-a2308ecc9a2f}</UniqueIdentifier>
+    <Filter Include="01. Obj\05. Obj_2">
+      <UniqueIdentifier>{21833361-0c77-460b-aeb0-3c260112b2df}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\JAEHUN\01.Tail">
-      <UniqueIdentifier>{5dfabb40-1f8d-4699-b61a-57db0ebcb29b}</UniqueIdentifier>
+    <Filter Include="01. Obj\05. Obj_2\00. Player2">
+      <UniqueIdentifier>{d1ab4a51-3336-42de-9d5c-084a695a3ea0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -182,12 +179,9 @@
     </ClInclude>
     <ClInclude Include="Player4.h">
       <Filter>01. Obj\04. Obj_4\40. Player</Filter>
-</ClInclude>
-    <ClInclude Include="Player1.h">
-      <Filter>01. Obj\JAEHUN\00.Player1</Filter>
     </ClInclude>
-    <ClInclude Include="Tail.h">
-      <Filter>01. Obj\JAEHUN\01.Tail</Filter>
+    <ClInclude Include="Player2.h">
+      <Filter>01. Obj\05. Obj_2\00. Player2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -253,12 +247,9 @@
     </ClCompile>
     <ClCompile Include="Player4.cpp">
       <Filter>01. Obj\04. Obj_4\40. Player</Filter>
- </ClCompile>
-    <ClCompile Include="Player1.cpp">
-      <Filter>01. Obj\JAEHUN\00.Player1</Filter>
     </ClCompile>
-    <ClCompile Include="Tail.cpp">
-      <Filter>01. Obj\JAEHUN\01.Tail</Filter>
+    <ClCompile Include="Player2.cpp">
+      <Filter>01. Obj\05. Obj_2\00. Player2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
