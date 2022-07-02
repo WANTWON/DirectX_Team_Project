@@ -20,7 +20,7 @@ CPlayer4::~CPlayer4()
 void CPlayer4::Initialize(void)
 {
 	m_tInfo.vSIze = { 50.f, 50.f, 0.f };
-	m_tInfo.vPos = { 400.f, 300.f, 0.f };
+	m_tInfo.vPos = { 400.f, 500.f, 0.f };
 	m_tInfo.vLook = { 0.f, -1.f, 0.f };
 	
 	m_fSpeed = 5.f;
@@ -38,7 +38,7 @@ void CPlayer4::Initialize(void)
 	m_pPosin = { m_tInfo.vPos.x , m_tInfo.vPos.y - 50 , 0.f };
 	m_pOriginPosin = m_pPosin;
 
-	D3DXMatrixIdentity(&m_tInfo.matWorld); //항등행렬로 만들기
+	D3DXMatrixIdentity(&m_tInfo.matWorld); 
 
 }
 
@@ -57,7 +57,7 @@ int CPlayer4::Update(void)
 	for (int i = 0; i < 4; ++i)
 	{
 		m_pPoint[i] = m_pOriginPoint[i];
-		m_pPoint[i] -= {400, 300, 0};
+		m_pPoint[i] -= {400, 500, 0};
 
 		D3DXVec3TransformCoord(&m_pPoint[i], &m_pPoint[i], &m_tInfo.matWorld);
 	}
@@ -65,7 +65,7 @@ int CPlayer4::Update(void)
 
 	D3DXVECTOR3 vTemp = m_pOriginPosin;
 
-	vTemp -= {400, 300, 0.f};
+	vTemp -= {400, 500, 0.f};
 
 	m_pPosin.x = cosf(m_fPosinAngle)*vTemp.x - sinf(m_fPosinAngle)*vTemp.y;
 	m_pPosin.y = sinf(m_fPosinAngle)*vTemp.x + cosf(m_fPosinAngle)*vTemp.y;
@@ -119,20 +119,22 @@ void CPlayer4::Key_Input(void)
 
 	if (CKeyMgr::Get_Instance()->Key_Pressing(VK_UP))
 	{
-		D3DXVec3TransformNormal(&m_tInfo.vDir, &m_tInfo.vLook, &m_tInfo.matWorld); //방향 벡터
+		D3DXVec3TransformNormal(&m_tInfo.vDir, &m_tInfo.vLook, &m_tInfo.matWorld); 
 		m_tInfo.vPos += m_tInfo.vDir* m_fSpeed;
 	}
 
 	if (CKeyMgr::Get_Instance()->Key_Pressing(VK_DOWN))
 	{
-		D3DXVec3TransformNormal(&m_tInfo.vDir, &m_tInfo.vLook, &m_tInfo.matWorld); //방향 벡터
+		D3DXVec3TransformNormal(&m_tInfo.vDir, &m_tInfo.vLook, &m_tInfo.matWorld); 
 		m_tInfo.vPos -= m_tInfo.vDir* m_fSpeed;
 	}
 
-	if (CKeyMgr::Get_Instance()->Key_Pressing(VK_SPACE))
+	if (CKeyMgr::Get_Instance()->Key_Down(VK_SPACE))
 	{
 		CObj* pObj = CAbstractFactory<CBullet4>::Create(m_pPosin.x, m_pPosin.y);
 		static_cast<CBullet4*>(pObj)->Set_Player(this);
+		static_cast<CBullet4*>(pObj)->Set_Pos(m_pPosin);
+		static_cast<CBullet4*>(pObj)->Set_Angle(m_fPosinAngle);
 		CObjMgr::Get_Instance()->Add_Object(OBJ_BULLET, pObj);
 	}
 }
