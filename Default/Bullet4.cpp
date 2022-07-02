@@ -2,7 +2,7 @@
 #include "Bullet4.h"
 
 
-CBullet4::CBullet4() : m_pPlayer(nullptr), m_bCount(false)
+CBullet4::CBullet4() : m_pPlayer(nullptr), m_bCount(false), XScale(1), YScale(1), ZScale(1)
 {
 }
 
@@ -47,12 +47,13 @@ int CBullet4::Update(void)
 	 D3DXVec3Normalize(&m_tInfo.vDir, &m_tInfo.vDir);
 
 
-	 D3DXMATRIX matRotZ, matTrans;
+	D3DXMATRIX matScale, matRotZ, matTrans;
 
+	 D3DXMatrixScaling(&matScale, XScale, YScale, 0);
 	 D3DXMatrixRotationZ(&matRotZ, m_fAngle);	//각도 만큼 회전 시킨건데
 	 D3DXMatrixTranslation(&matTrans, m_tInfo.vPos.x, m_tInfo.vPos.y, m_tInfo.vPos.z);
 
-	 m_tInfo.matWorld = matRotZ *matTrans;
+	 m_tInfo.matWorld = matScale* matRotZ *matTrans;
 
 	for (int i = 0; i < 4; ++i)
 	{
@@ -69,7 +70,6 @@ int CBullet4::Update(void)
 		m_vPoint[i] += m_tInfo.vPos;
 		*/
 	}
-
 	m_tInfo.vPos.x += m_tInfo.vDir.x * m_fSpeed;
 	m_tInfo.vPos.y += m_tInfo.vDir.y * m_fSpeed;
 
@@ -78,6 +78,19 @@ int CBullet4::Update(void)
 
 void CBullet4::Late_Update(void)
 {
+	if (m_tInfo.vPos.x > WINCX || m_tInfo.vPos.x < 0)
+	{
+		m_fAngle =  - m_fAngle;
+		m_tInfo.vDir.x *= -1;
+	}
+	
+	if (m_tInfo.vPos.y < 0)
+	{
+		m_fAngle = 180 - (m_fAngle);
+
+		m_tInfo.vDir.y *= -1;
+	}
+		
 }
 
 void CBullet4::Render(HDC hDC)

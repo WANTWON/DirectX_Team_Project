@@ -26,6 +26,8 @@ private:
 
 	D3DXVECTOR3 m_vOriginPos;
 
+	float XScale, YScale, ZScale;
+
 	float m_fAngle;
 
 	bool m_bCount;
