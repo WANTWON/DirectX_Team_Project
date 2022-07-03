@@ -42,7 +42,7 @@ private:
 	int m_iScore = 0;
 	bool m_bJump;
 	bool m_bCount;
-	bool m_bClear = false;
+	bool m_bClear;
 
 	DWORD m_dwTime;
 

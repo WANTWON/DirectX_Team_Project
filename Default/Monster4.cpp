@@ -43,7 +43,10 @@ int CMonster4::Update(void)
 	if (m_bDead)
 	{
 		if (m_eState == RED)
+		{
 			static_cast<CPlayer4*>(CObjMgr::Get_Instance()->Get_Player())->Set_Clear();
+			CObjMgr::Get_Instance()->Get_Player()->Set_bDead();
+		}
 		return OBJ_DEAD;
 	}
 		

@@ -66,20 +66,20 @@ void CStage4::Late_Update(void)
 
 	if (m_bClear && m_dwTime + 2000 <GetTickCount())
 	{
-		CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
+	//	CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
 	}
 
-	if (CKeyMgr::Get_Instance()->Key_Down(VK_RETURN))
-	{
-		CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
-	}
+	//if (CKeyMgr::Get_Instance()->Key_Down(VK_RETURN))
+	//{
+	//	CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
+	//}
 
 	CObjMgr::Get_Instance()->Late_Update();
 }
 
 void CStage4::Release(void)
 {
-	CObjMgr::Get_Instance()->Destroy_Instance();
+	//CObjMgr::Get_Instance()->Destroy_Instance();
 
 }
 

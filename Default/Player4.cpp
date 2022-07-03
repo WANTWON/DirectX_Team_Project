@@ -47,12 +47,20 @@ void CPlayer4::Initialize(void)
 
 int CPlayer4::Update(void)
 {
-	
+
 	Key_Input();
 	Jumping();
 	if (m_bDead)
-		return OBJ_DEAD;
-
+	{
+		if (m_bClear)
+		{
+			if (CKeyMgr::Get_Instance()->Key_Down(VK_RETURN))
+			{
+				CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
+				return OBJ_DEAD;
+			}
+		}
+    }
 	D3DXMATRIX matScale, matRotZ, matTrans;
 	D3DXMatrixScaling(&matScale, 1.f, 1.f, 0.f);
 	D3DXMatrixRotationZ(&matRotZ, m_fAngle);
@@ -76,14 +84,6 @@ int CPlayer4::Update(void)
 	m_vPosin.y = sinf(m_fPosinAngle)*vTemp.x + cosf(m_fPosinAngle)*vTemp.y;
 	m_vPosin += m_tInfo.vPos;
 
-	if (m_bClear)
-	{
-		if (CKeyMgr::Get_Instance()->Key_Down(VK_RETURN))
-		{
-			CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
-			return OBJ_DEAD;
-		}
-	}
 
 	return OBJ_NOEVENT;
 }

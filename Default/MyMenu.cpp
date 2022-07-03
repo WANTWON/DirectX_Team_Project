@@ -54,4 +54,12 @@ void CMyMenu::Render(HDC hDC)
 {
 	Rectangle(hDC, 0, 0, WINCX, WINCY);
 	CObjMgr::Get_Instance()->Render(hDC);
+	TCHAR szLEE[32] = L"LEE";
+	TCHAR szWON[32] = L"WON";
+	TCHAR szSEO[32] = L"SEO";
+	TCHAR szHEO[32] = L"HEO";
+	TextOut(hDC, 87, 190, szLEE, lstrlen(szLEE));
+	TextOut(hDC, 186, 190, szHEO, lstrlen(szHEO));
+	TextOut(hDC, 286, 190, szSEO, lstrlen(szSEO));
+	TextOut(hDC, 383, 190, szWON, lstrlen(szWON));
 }
