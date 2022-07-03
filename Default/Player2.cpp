@@ -59,7 +59,7 @@ int CPlayer2::Update(void)
 	if (m_bDead)
 	{
 		CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
-		return 1;
+		return OBJ_DEAD;
 	}
 
 
@@ -113,7 +113,7 @@ int CPlayer2::Update(void)
 
 	D3DXVec3TransformNormal(&vBDir, &m_tInfo.vLook, &matWorld2);
 
-	return 0;
+	return OBJ_NOEVENT;
 }
 
 void CPlayer2::Late_Update(void)

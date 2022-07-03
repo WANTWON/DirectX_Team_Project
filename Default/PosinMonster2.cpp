@@ -50,7 +50,7 @@ int CPosinMonster2::Update(void)
 		pItem->Initialize();
 		CObjMgr::Get_Instance()->Add_Object(OBJ_ITEM, pItem);
 		
-		return 1;
+		return OBJ_DEAD;
 	}
 
 	m_tInfo.vDir = m_pPlayer->Get_Info().vPos - m_tInfo.vPos;
@@ -93,7 +93,7 @@ int CPosinMonster2::Update(void)
 
 	Update_Rect();
 
-	return 0;
+	return OBJ_NOEVENT;
 }
 
 void CPosinMonster2::Late_Update(void)

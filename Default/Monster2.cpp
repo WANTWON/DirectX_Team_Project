@@ -35,7 +35,7 @@ int CMonster2::Update(void)
 	if (m_bDead)
 	{
 		dynamic_cast<CPlayer2*>(CObjMgr::Get_Instance()->Get_Player())->Set_iScore();
-		return 1;
+		return OBJ_DEAD;
 	}
 
 	Monster_Move();
@@ -55,7 +55,7 @@ int CMonster2::Update(void)
 		m_dBulletTime = GetTickCount();
 	}
 
-	return 0;
+	return OBJ_NOEVENT;
 }
 
 void CMonster2::Late_Update(void)

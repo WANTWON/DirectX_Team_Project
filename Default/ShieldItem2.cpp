@@ -49,7 +49,7 @@ int CShieldItem2::Update(void)
 		m_bDead = true;
 
 	if (m_bDead)
-		return 1;
+		return OBJ_DEAD;
 
 	CObj* pPlayer = CObjMgr::Get_Instance()->Get_Player();
 
@@ -79,7 +79,7 @@ int CShieldItem2::Update(void)
 
 		D3DXVec3TransformCoord(&m_vPoint[i], &m_vPoint[i], &matWorld);
 	}
-	return 0;
+	return OBJ_NOEVENT;
 }
 
 void CShieldItem2::Late_Update(void)

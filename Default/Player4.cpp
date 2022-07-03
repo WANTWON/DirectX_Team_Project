@@ -84,7 +84,6 @@ int CPlayer4::Update(void)
 	m_vPosin.y = sinf(m_fPosinAngle)*vTemp.x + cosf(m_fPosinAngle)*vTemp.y;
 	m_vPosin += m_tInfo.vPos;
 
-
 	return OBJ_NOEVENT;
 }
 
