@@ -55,10 +55,8 @@ bool CCollisionMgr::Collision_Sphere(list<CObj*> Sour, list<CObj*> Dest)
 
 bool CCollisionMgr::ChecK_Sphere(CObj * Sour, CObj * Dest)
 {
-
 	float fRadius = (Sour->Get_Info().vSIze.x + Dest->Get_Info().vSIze.x)*0.5f; //두 원의 반지름을 더한 값
 
-																		  //절대값을 씌워주는 함수
 	float fWidth = abs(Sour->Get_Info().vPos.x - Dest->Get_Info().vPos.x);
 	float fHeight = abs(Sour->Get_Info().vPos.y - Dest->Get_Info().vPos.y);
 

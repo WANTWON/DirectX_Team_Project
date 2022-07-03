@@ -9,7 +9,6 @@ CMyMenu::CMyMenu()
 {
 }
 
-
 CMyMenu::~CMyMenu()
 {
 	Release();

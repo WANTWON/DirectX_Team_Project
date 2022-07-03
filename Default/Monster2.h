@@ -14,6 +14,7 @@ public:
 private:
 	void	Monster_Move();
 	CObj*	Create_Bullet(DIRECTION eDir);
+	void	Collision_Check();
 
 public:
 	virtual void Initialize(void) override;
@@ -26,5 +27,7 @@ private:
 	CObj*			m_pPlayer = nullptr;
 	bool			m_bDead;
 	DWORD			m_dBulletTime;
+	int				m_iHp;
+	int				m_iAttack;
 };
 

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Bullet2.h"
-
+#include "player2.h"
+#include "ObjMgr.h"
 
 CBullet2::CBullet2()
 {
@@ -25,6 +26,8 @@ void CBullet2::Initialize(void)
 	m_fSpeed = 5.f;
 
 	m_vInitPoint = m_tInfo.vPos;
+	m_tInfo.vSIze.x = 10.f;
+	m_tInfo.vSIze.y = 10.f;
 }
 
 int CBullet2::Update(void)
@@ -51,6 +54,8 @@ int CBullet2::Update(void)
 	}
 	m_tInfo.vPos += m_eDir * m_fSpeed;
 
+	Update_Rect();
+
 	return 0;
 }
 
@@ -59,24 +64,31 @@ void CBullet2::Late_Update(void)
 	if (m_tInfo.vPos.x < 0 || m_tInfo.vPos.x > WINCX - 10 || m_tInfo.vPos.y < 0 || m_tInfo.vPos.y > WINCY - 10)
 		m_bDead = true;
 
-	Update_Rect();
 }
 
 void CBullet2::Render(HDC hDC)
 {
+	/*
 	MoveToEx(hDC, m_vPoint[0].x, m_vPoint[0].y, nullptr);
 	LineTo(hDC, m_vPoint[1].x, m_vPoint[1].y);
 	LineTo(hDC, m_vPoint[2].x, m_vPoint[2].y);
 	LineTo(hDC, m_vPoint[0].x, m_vPoint[0].y);
-
+	*/
 	
-	Ellipse(hDC, m_tInfo.vPos.x - 5.f,
-		m_tInfo.vPos.y - 5.f,
-		m_tInfo.vPos.x + 5.f,
-		m_tInfo.vPos.y + 5.f);
-		
+	bool bPlayerDead = dynamic_cast<CPlayer2*>(CObjMgr::Get_Instance()->Get_Player())->Get_PlayerDead();
+
+
+	if (!bPlayerDead)
+	{
+		Ellipse(hDC, m_tRect.left,
+			m_tRect.top,
+			m_tRect.right,
+			m_tRect.bottom);
+	}
+
 }
 
 void CBullet2::Release(void)
 {
 }
+

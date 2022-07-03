@@ -9,7 +9,7 @@ public:
 
 public:
 	void		Set_Player(CObj* pPlayer) { m_pPlayer = pPlayer; }
-	CObj*		Create_Bullet(DIRECTION eDir);
+	CObj*		Create_Bullet();
 
 public:
 	virtual		void	Initialize(void) override;
@@ -20,7 +20,7 @@ public:
 
 private:
 	void	Monster_Move();
-
+	void	Collision_Check();
 
 private:
 	CObj*			m_pPlayer = nullptr;
@@ -33,5 +33,7 @@ private:
 	float			m_fPosinAngle;
 	DWORD			m_dBulletTime;
 
+	int				m_iHp;
+	int				m_iAttack;
 };
 
