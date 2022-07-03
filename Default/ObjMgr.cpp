@@ -52,7 +52,12 @@ int CObjMgr::Update()
 					iter = m_pObjList[i].erase(iter);
 				}
 				else
+				{
 					++iter;
+					if (iter == m_pObjList[i].end())
+						break;
+				}
+					
 			}
 		}
 

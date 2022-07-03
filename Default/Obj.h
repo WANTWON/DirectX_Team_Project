@@ -29,6 +29,7 @@ public:
 
 public:
 	void		Set_FrameKey(TCHAR* _pFramekey) { m_pFrameKey = _pFramekey; }
+	void		Set_DirVector(D3DXVECTOR3 vDir) { m_pDirVector = vDir; }
 	
 protected:
 	void		Update_Rect(void);
@@ -42,5 +43,7 @@ protected:
 	bool		m_bDead;
 
 	OBJID		m_eID;
+
+	D3DXVECTOR3 m_pDirVector;
 };
 

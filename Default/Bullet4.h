@@ -18,8 +18,9 @@ public:
 	virtual void Render(HDC hDC) override;
 	virtual void Release(void) override;
 
-	void Set_DirVector(D3DXVECTOR3 vDir) { m_tInfo.vDir = vDir; }
 	void Set_bMove() { m_bMove = true; m_fSpeed = 3.f;m_fMoveAngle = 3.f;}
+	void Set_DirVector(D3DXVECTOR3 vDir) { m_tInfo.vDir = vDir; }
+
 private:
 	CObj* m_pPlayer;
 
@@ -38,7 +39,6 @@ private:
 	bool m_bDeadCount;
 	bool m_bMove = false;
 
-
-	D3DXVECTOR3 m_pDirVector;
+	bool m_bfirst = false;
 };
 

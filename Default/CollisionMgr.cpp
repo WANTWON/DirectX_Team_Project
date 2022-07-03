@@ -2,6 +2,9 @@
 #include "CollisionMgr.h"
 #include "Monster4.h"
 #include "Bullet4.h"
+#include "Player4.h"
+#include "ObjMgr.h"
+#include "Obj.h"
 
 RECT rc = {};
 
@@ -166,9 +169,8 @@ bool CCollisionMgr::Collision_Sphere_with_Monster4(list<CObj*> Sour, CObj * Dest
 			{
 				D3DXVECTOR3 vTemp = Dest->Get_Info().vPos - (*Sour_iter)->Get_Info().vPos;
 				D3DXVec3Normalize(&vTemp, &vTemp);
-				//(*Sour_iter)->Set_bDead();
-				dynamic_cast<CMonster4*>(Dest)->Set_DirVector(vTemp);
-				dynamic_cast<CMonster4*>(*Sour_iter)->Set_DirVector(-vTemp);
+				(Dest)->Set_DirVector(vTemp);
+				(*Sour_iter)->Set_DirVector(-vTemp);
 				return true;
 			}
 			
@@ -194,7 +196,7 @@ bool CCollisionMgr::Collision_Sphere_with_Bullet(list<CObj*> Sour, CObj * Dest)
 		{
 			D3DXVECTOR3 vTemp = Dest->Get_Info().vPos - (*Sour_iter)->Get_Info().vPos;
 			D3DXVec3Normalize(&vTemp, &vTemp);
-			dynamic_cast<CMonster4*>(Dest)->Set_DirVector(vTemp);
+			(Dest)->Set_DirVector(vTemp);
 			dynamic_cast<CBullet4*>(*Sour_iter)->Set_DirVector(-vTemp);
 			dynamic_cast<CBullet4*>(*Sour_iter)->Set_bMove();
 			return true;
@@ -202,5 +204,30 @@ bool CCollisionMgr::Collision_Sphere_with_Bullet(list<CObj*> Sour, CObj * Dest)
 
 		Sour_iter++;
 	}
+	return false;
+}
+
+bool CCollisionMgr::Collision_Point(D3DXVECTOR3 Point, CObj * Monster)
+{
+	float fRadius = (Monster->Get_Info().vSIze.x)*0.5f; //원의 반지름
+	bool bCoillision = false;
+
+
+	if ((Point.x >= (Monster->Get_Info().vPos.x - fRadius)  && (Point.x <= (Monster->Get_Info().vPos.x + fRadius)
+		&& (Point.y <= Monster->Get_Info().vPos.y + fRadius) && (Point.y >= Monster->Get_Info().vPos.y - fRadius))))
+	{
+		bCoillision = true; //Left collision
+		static_cast<CPlayer4*>(CObjMgr::Get_Instance()->Get_Player())->Set_Stop();
+	}
+	
+
+	if (bCoillision)
+	{
+		D3DXVECTOR3 vTemp = Monster->Get_Info().vPos - Point;
+		D3DXVec3Normalize(&vTemp, &vTemp);
+		(Monster)->Set_DirVector(vTemp);
+		return true;
+	}
+
 	return false;
 }

@@ -65,14 +65,7 @@ int CPlayer1::Update(void)
 			m_Clear = true;
 			m_dDeadTime = GetTickCount();
 		}
-		if (m_Clear)
-		{
-			if (CKeyMgr::Get_Instance()->Key_Down(VK_RETURN))
-			{
-				CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
-				return OBJ_DEAD;
-			}
-		}
+		
 	}
 
 	if(!m_bDead)

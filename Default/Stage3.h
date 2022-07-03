@@ -13,5 +13,6 @@ public:
 	void Late_Update(void);
 	void Release(void);
 	void Render(HDC hDC);
+	
 };
 
