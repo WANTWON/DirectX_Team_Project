@@ -17,8 +17,11 @@ public:
 	void Set_PosY(float _fY) { m_tInfo.vPos.y += _fY; }
 	void Set_PosX(float _fX) { m_tInfo.vPos.x += _fX; }
 	void Set_bDead() { m_bDead = true; }
+	void Set_Angle(float _fAngle) { m_fAngle = _fAngle; }
 	const INFO&		Get_Info(void)const { return m_tInfo; }
 	const RECT&		Get_Rect(void) const { return m_tRect; }
+
+	TOWERTYPE	Get_TOWERID() { return m_Ttype; }
 
 public:
 	virtual		void	Initialize(void)	PURE;
@@ -38,12 +41,20 @@ protected:
 	INFO		m_tInfo;
 	TCHAR*		m_pFrameKey;
 
+	int m_iHp;
 	float		m_fSpeed;
+	float       m_fAngle;
 	RECT		m_tRect;
-	bool		m_bDead;
-
+	
 	OBJID		m_eID;
 
 	D3DXVECTOR3 m_pDirVector;
+
+	DWORD		m_dwTime;
+
+	bool m_bDead;
+	bool m_bFront;
+
+	TOWERTYPE	m_Ttype;
 };
 
