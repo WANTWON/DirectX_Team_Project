@@ -1,20 +1,19 @@
 #include "stdafx.h"
-#include "Tail.h"
+#include "Item.h"
 
-
-CTail::CTail()
-	:m_fAngle(0)
+CItem::CItem()
+	:m_fAngle(0),m_bDead(false), m_dTime(GetTickCount())
 {
 	ZeroMemory(&m_rc, sizeof(RECT));
 }
 
 
-CTail::~CTail()
+CItem::~CItem()
 {
 }
 
 
-void CTail::Initialize(void)
+void CItem::Initialize(void)
 {
 	m_tInfo.vPos = { 400.f, 300.f, 0.f };
 	m_tInfo.vLook = { 0.f, -1.f, 0.f };
@@ -22,20 +21,27 @@ void CTail::Initialize(void)
 
 }
 
-int CTail::Update(void)
+int CItem::Update(void)
 {
+	if(m_bDead)
+		return OBJ_DEAD;
 
 	Update_Rect();
-	
+
 	return OBJ_NOEVENT;
 }
 
-void CTail::Late_Update(void)
+void CItem::Late_Update(void)
 {
+	if (m_dTime + 7000 < GetTickCount())
+	{
+		m_bDead = true;
+		m_dTime = GetTickCount();
+	}
 	Update_Rect();
 }
 
-void CTail::Render(HDC hDC)
+void CItem::Render(HDC hDC)
 {
 
 	Ellipse(hDC,
@@ -45,11 +51,11 @@ void CTail::Render(HDC hDC)
 		m_rc.bottom);
 }
 
-void CTail::Release(void)
+void CItem::Release(void)
 {
 }
 
-void CTail::Update_Rect()
+void CItem::Update_Rect()
 {
 	for (int i = 0; i < 2; ++i)
 	{

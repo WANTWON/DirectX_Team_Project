@@ -97,6 +97,9 @@
     <Filter Include="01. Obj\JAEHUN\01 Tail">
       <UniqueIdentifier>{7d89b56a-de18-4d35-b40a-0bc0e4697de9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\04. Obj_4\42. Monster">
+      <UniqueIdentifier>{c3e3b0e9-6edf-4be7-9ced-714ea4a07b63}</UniqueIdentifier>
+    </Filter>
     <Filter Include="01. Obj\02. Obj_2\01. Player2">
       <UniqueIdentifier>{6916e854-c0fc-47a3-af6e-8d3e4184f198}</UniqueIdentifier>
     </Filter>
@@ -120,6 +123,36 @@
     </Filter>
     <Filter Include="01. Obj\02. Obj_2\03. Monster2\02. PosinMonster2">
       <UniqueIdentifier>{717baf11-12ef-4aab-9680-a8cca65eb9ee}</UniqueIdentifier>
+</Filter>
+    <Filter Include="01. Obj\04. Obj_4\43. Goal">
+      <UniqueIdentifier>{afbb60bc-fe13-4aef-86c9-5531d64519de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\JAEHUN\02.Item">
+      <UniqueIdentifier>{0de78ebe-aa56-4ee8-ae7c-08a7e87ac7e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\JAEHUN\03.Monster1">
+      <UniqueIdentifier>{1c1b5aa7-ce92-48fd-93e8-ee6faec514b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\JAEHUN\04.Bullet1">
+      <UniqueIdentifier>{e7cc7eeb-bc57-410b-af1e-a5f969fba1ad}</UniqueIdentifier>
+   </Filter>
+    <Filter Include="01. Obj\03. Obj_3">
+      <UniqueIdentifier>{38fcc986-b115-4da7-96d2-46d0c433c64e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. Obj_3\30.Player">
+      <UniqueIdentifier>{002849f7-11b8-42f8-9bb5-27f7a8bf66db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. Obj_3\31.Bullet">
+      <UniqueIdentifier>{09e93575-9284-4ba1-934c-cae50e53790f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. Obj_3\32.Monster">
+      <UniqueIdentifier>{3f9b8991-e117-44fa-826e-a5b0301ef470}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. Obj_3\33.Tower">
+      <UniqueIdentifier>{1d10cbdb-226d-4855-b4b0-7b8fff630905}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. Obj_3\34.MainTower">
+      <UniqueIdentifier>{34c9c481-3247-40f5-8a33-eef80b107446}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -219,11 +252,17 @@
     <ClInclude Include="Bullet4.h">
       <Filter>01. Obj\04. Obj_4\41. Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="Monster4.h">
+      <Filter>01. Obj\04. Obj_4\42. Monster</Filter>
+    </ClInclude>
     <ClInclude Include="Player2.h">
       <Filter>01. Obj\02. Obj_2\01. Player2</Filter>
     </ClInclude>
     <ClInclude Include="Bullet2.h">
       <Filter>01. Obj\02. Obj_2\02. Bullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="Item2.h">
+      <Filter>01. Obj\02. Obj_2\04. Item2</Filter>
     </ClInclude>
     <ClInclude Include="MainGame.h">
       <Filter>00. MainGame</Filter>
@@ -242,6 +281,36 @@
     </ClInclude>
     <ClInclude Include="NormalItem2.h">
       <Filter>01. Obj\02. Obj_2\04. Item2\01. NormalItem2</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>01. Obj\JAEHUN\02.Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster2.h">
+      <Filter>01. Obj\02. Obj_2\03. Monster2</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster1.h">
+      <Filter>01. Obj\JAEHUN\03.Monster1</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet1.h">
+      <Filter>01. Obj\JAEHUN\04.Bullet1</Filter>
+ </ClInclude>
+    <ClInclude Include="Goal4.h">
+      <Filter>01. Obj\04. Obj_4\43. Goal</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster3.h">
+      <Filter>01. Obj\03. Obj_3\32.Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Player3.h">
+      <Filter>01. Obj\03. Obj_3\30.Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Tower3.h">
+      <Filter>01. Obj\03. Obj_3\33.Tower</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet3.h">
+      <Filter>01. Obj\03. Obj_3\31.Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Maintower3.h">
+      <Filter>01. Obj\03. Obj_3\34.MainTower</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -317,6 +386,9 @@
     <ClCompile Include="Bullet4.cpp">
       <Filter>01. Obj\04. Obj_4\41. Bullet</Filter>
     </ClCompile>
+    <ClCompile Include="Monster4.cpp">
+      <Filter>01. Obj\04. Obj_4\42. Monster</Filter>
+    </ClCompile>
     <ClCompile Include="Player2.cpp">
       <Filter>01. Obj\02. Obj_2\01. Player2</Filter>
     </ClCompile>
@@ -337,6 +409,39 @@
     </ClCompile>
     <ClCompile Include="NormalItem2.cpp">
       <Filter>01. Obj\02. Obj_2\04. Item2\01. NormalItem2</Filter>
+  </ClCompile>
+    <ClCompile Include="Monster2.cpp">
+      <Filter>01. Obj\02. Obj_2\03. Monster2</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>01. Obj\JAEHUN\02.Item</Filter>
+    </ClCompile>
+    <ClCompile Include="PosinMonster2.cpp">
+      <Filter>01. Obj\02. Obj_2\03. Monster2</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster1.cpp">
+      <Filter>01. Obj\JAEHUN\03.Monster1</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet1.cpp">
+      <Filter>01. Obj\JAEHUN\04.Bullet1</Filter>
+ </ClCompile>
+    <ClCompile Include="Goal4.cpp">
+      <Filter>01. Obj\04. Obj_4\43. Goal</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster3.cpp">
+      <Filter>01. Obj\03. Obj_3\32.Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Player3.cpp">
+      <Filter>01. Obj\03. Obj_3\30.Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Tower3.cpp">
+      <Filter>01. Obj\03. Obj_3\33.Tower</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet3.cpp">
+      <Filter>01. Obj\03. Obj_3\31.Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Maintower3.cpp">
+      <Filter>01. Obj\03. Obj_3\34.MainTower</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

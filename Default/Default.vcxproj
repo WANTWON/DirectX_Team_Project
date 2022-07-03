@@ -158,6 +158,8 @@
     <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="BmpMgr.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Bullet1.h" />
+    <ClInclude Include="Bullet3.h" />
     <ClInclude Include="Bullet4.h" />
     <ClInclude Include="Bullet2.h" />
     <ClInclude Include="CollisionMgr.h" />
@@ -165,12 +167,18 @@
     <ClInclude Include="Define.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Function.h" />
+    <ClInclude Include="Goal4.h" />
     <ClInclude Include="Include.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Item2.h" />
     <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="MainGame.h" />
+    <ClInclude Include="Maintower3.h" />
     <ClInclude Include="Monster.h" />
+    <ClInclude Include="Monster1.h" />
+    <ClInclude Include="Monster4.h" />
     <ClInclude Include="Monster2.h" />
+    <ClInclude Include="Monster3.h" />
     <ClInclude Include="MyBmp.h" />
     <ClInclude Include="MyButton.h" />
     <ClInclude Include="MyMenu.h" />
@@ -194,19 +202,29 @@
     <ClInclude Include="Struct.h" />
     <ClInclude Include="Tail.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Tower3.h" />
+    <ClInclude Include="Player3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BmpMgr.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Bullet1.cpp" />
+    <ClCompile Include="Bullet3.cpp" />
     <ClCompile Include="Bullet4.cpp" />
     <ClCompile Include="Bullet2.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Default.cpp" />
+    <ClCompile Include="Goal4.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Item2.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="Maintower3.cpp" />
     <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="Monster1.cpp" />
+    <ClCompile Include="Monster4.cpp" />
     <ClCompile Include="Monster2.cpp" />
+    <ClCompile Include="Monster3.cpp" />
     <ClCompile Include="MyBmp.cpp" />
     <ClCompile Include="MyButton.cpp" />
     <ClCompile Include="MyMenu.cpp" />
@@ -216,6 +234,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Player1.cpp" />
     <ClCompile Include="Player2.cpp" />
+    <ClCompile Include="Player3.cpp" />
     <ClCompile Include="Player4.cpp" />
     <ClCompile Include="PosinMonster2.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -232,6 +251,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Tail.cpp" />
+    <ClCompile Include="Tower3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Default.rc" />
