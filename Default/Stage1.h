@@ -15,7 +15,9 @@ public:
 	void Render(HDC hDC);
 private:
 	void Create_Item();
+	void Create_Monster();
 private:
 	DWORD m_dtime;
+	DWORD m_dtime2;
 };
 

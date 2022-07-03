@@ -14,10 +14,9 @@ public:
 	void Release(void);
 	void Render(HDC hDC);
 
+
 	int moncreate;
-
-
-
 	DWORD		m_dwTime;
+
 };
 

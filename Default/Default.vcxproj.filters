@@ -118,6 +118,12 @@
     <Filter Include="01. Obj\JAEHUN\02.Item">
       <UniqueIdentifier>{0de78ebe-aa56-4ee8-ae7c-08a7e87ac7e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\JAEHUN\03.Monster1">
+      <UniqueIdentifier>{1c1b5aa7-ce92-48fd-93e8-ee6faec514b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\JAEHUN\04.Bullet1">
+      <UniqueIdentifier>{e7cc7eeb-bc57-410b-af1e-a5f969fba1ad}</UniqueIdentifier>
+   </Filter>
     <Filter Include="01. Obj\03. Obj_3">
       <UniqueIdentifier>{38fcc986-b115-4da7-96d2-46d0c433c64e}</UniqueIdentifier>
     </Filter>
@@ -258,6 +264,12 @@
     <ClInclude Include="Monster2.h">
       <Filter>01. Obj\02. Obj_2\03. Monster2</Filter>
     </ClInclude>
+    <ClInclude Include="Monster1.h">
+      <Filter>01. Obj\JAEHUN\03.Monster1</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet1.h">
+      <Filter>01. Obj\JAEHUN\04.Bullet1</Filter>
+ </ClInclude>
     <ClInclude Include="Goal4.h">
       <Filter>01. Obj\04. Obj_4\43. Goal</Filter>
     </ClInclude>
@@ -371,6 +383,12 @@
     <ClCompile Include="PosinMonster2.cpp">
       <Filter>01. Obj\02. Obj_2\03. Monster2</Filter>
     </ClCompile>
+    <ClCompile Include="Monster1.cpp">
+      <Filter>01. Obj\JAEHUN\03.Monster1</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet1.cpp">
+      <Filter>01. Obj\JAEHUN\04.Bullet1</Filter>
+ </ClCompile>
     <ClCompile Include="Goal4.cpp">
       <Filter>01. Obj\04. Obj_4\43. Goal</Filter>
     </ClCompile>

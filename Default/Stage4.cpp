@@ -19,20 +19,31 @@ CStage4::~CStage4()
 
 void CStage4::Initialize(void)
 {
+	int xPos = 450;
+	int yPos = 300;
+
+	CObjMgr::Get_Instance()->Add_Object(OBJ_PLAYER, CAbstractFactory<CPlayer4>::Create(100, 300));
 	
-	CObjMgr::Get_Instance()->Add_Object(OBJ_PLAYER, CAbstractFactory<CPlayer4>::Create(400, 500));
-	
-	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(400, 250 + 2));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(xPos, yPos));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(xPos + 20, yPos - 10));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(xPos + 20, yPos + 11));
 
-	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(415, 225 +1));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(390 -1, 225 +1));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(xPos + 40, yPos - 20));
+	CObj* Ball = CAbstractFactory<CMonster4>::Create(xPos + 40, yPos + 1);
+	static_cast<CMonster4*>(Ball)->Set_RED_ball();
+	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, Ball);
+	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(xPos + 40, yPos + 22));
 
-	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(400, 200));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(425 +1, 200));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(375 -1, 200));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(xPos + 60, yPos - 31));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(xPos + 60, yPos - 10));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(xPos + 60, yPos + 11));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster4>::Create(xPos + 60, yPos + 32));
 
-	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CGoal4>::Create(50, 100));
-	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CGoal4>::Create(750, 100));
+
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CGoal4>::Create(50, 50));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CGoal4>::Create(750, 50));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CGoal4>::Create(50, 550));
+	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CGoal4>::Create(750, 550));
 
 
 }
@@ -46,6 +57,18 @@ int CStage4::Update(void)
 
 void CStage4::Late_Update(void)
 {
+	if (static_cast<CPlayer4*>((CObjMgr::Get_Instance()->Get_Player()))->Get_Clear() && !m_bCount)
+	{
+		m_dwTime = GetTickCount();
+		m_bClear = true;
+		m_bCount = true;
+	}
+
+	if (m_bClear && m_dwTime + 2000 <GetTickCount())
+	{
+		CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
+	}
+
 	if (CKeyMgr::Get_Instance()->Key_Down(VK_RETURN))
 	{
 		CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);

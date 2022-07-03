@@ -16,7 +16,7 @@ CBullet4::~CBullet4()
 
 void CBullet4::Initialize(void)
 {
-	m_tInfo.vSIze = { 25.f, 25.f, 0.f };
+	m_tInfo.vSIze = { 20.f, 20.f, 0.f };
 	m_tInfo.vPos = { 200,300 , 0 };
 	m_tInfo.vDir = { 0, -1, 0 };
 	m_tInfo.vLook = { 0, -1, 0 };
@@ -87,6 +87,8 @@ int CBullet4::Update(void)
 
 void CBullet4::Late_Update(void)
 {
+
+
 	for (int i = 0; i < 8; ++i)
 	{
 		if (m_vPoint[i].x > WINCX || m_vPoint[i].x < 0)
@@ -97,7 +99,7 @@ void CBullet4::Late_Update(void)
 			m_tInfo.vDir.x *= -1;
 			m_bDeadCount = true;
 		}
-		else if (m_vPoint[i].y < 0 )
+		else if (m_vPoint[i].y < 0)
 		{
 			if (m_bDeadCount)
 				break;
@@ -119,32 +121,73 @@ void CBullet4::Late_Update(void)
 		m_bDead = true;
 		dynamic_cast<CPlayer4*>((*CObjMgr::Get_Instance()->Get_IDlist(OBJ_PLAYER)).front())->Set_Score(10);
 	}
-	
 
-	if (m_bMove)
+	if (CCollisionMgr::Collision_Sphere_with_Bullet(*(CObjMgr::Get_Instance()->Get_IDlist(OBJ_BULLET)), this))
 	{
-		m_fAngle += D3DXToRadian(1);
-		m_tInfo.vPos += m_tInfo.vDir*m_fSpeed;
-		m_fSpeed -= 0.01f;
-		//m_fMoveAngle -= 0.01f;
+		m_tInfo.vDir = m_pDirVector;
+		m_bMove = true;
+		m_fSpeed = 4.f;
+		m_fMoveAngle = 3.f;
 
-		if (m_fSpeed <= 0)
-			m_bMove = false;
+	}
+
+	if (CCollisionMgr::Collision_Point(dynamic_cast<CPlayer4*>((*CObjMgr::Get_Instance()->Get_IDlist(OBJ_PLAYER)).front())->Get_PosinPoint(), this))
+	{
+		m_bMove = true;
+		m_tInfo.vDir = m_pDirVector;
+
+		if (static_cast<CPlayer4*>(CObjMgr::Get_Instance()->Get_Player())->Get_State() == CPlayer4::SHOOT)
+		{
+
+			m_fSpeed = 5.f;
+			m_fMoveAngle = 5.f;
+		}
+		else
+		{
+			if (!m_bfirst)
+			{
+				m_fSpeed = 5.f;
+				m_bfirst = true;
+			}
+			else
+			{
+				m_fSpeed = 2.f;
+				m_fMoveAngle = 2.f;
+			}
+
+			
+		}
+
+
+		if (m_bMove)
+		{
+			m_fAngle += D3DXToRadian(1);
+			m_tInfo.vPos += m_tInfo.vDir*m_fSpeed;
+			m_fSpeed -= 0.01f;
+			//m_fMoveAngle -= 0.01f;
+
+			if (m_fSpeed <= 0)
+				m_bMove = false;
+		}
 	}
 }
 
 void CBullet4::Render(HDC hDC)
 {
+	HPEN hNewPen = CreatePen(PS_SOLID, 2, RGB(0, 255, 255));
+	HGDIOBJ hOldPen = SelectObject(hDC, hNewPen);
+
 	MoveToEx(hDC, m_vPoint[0].x, m_vPoint[0].y, nullptr);
 
 	for (int i = 0; i < 8; ++i)
 	{
 		LineTo(hDC, m_vPoint[i].x, m_vPoint[i].y);
 
-		if (i < 2)
-			Ellipse(hDC, m_vPoint[i].x - 2, m_vPoint[i].y - 2, m_vPoint[i].x + 2, m_vPoint[i].y + 2);
 	}
 	LineTo(hDC, m_vPoint[0].x, m_vPoint[0].y);
+
+	SelectObject(hDC, hOldPen);
+	DeleteObject(hNewPen);
 }
 
 void CBullet4::Release(void)
