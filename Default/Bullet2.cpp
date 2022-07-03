@@ -33,7 +33,7 @@ void CBullet2::Initialize(void)
 int CBullet2::Update(void)
 {
 	if (m_bDead)
-		return 1;
+		return OBJ_DEAD;
 
 	D3DXMATRIX	matScale, matRotate, matTrans;
 
@@ -56,7 +56,7 @@ int CBullet2::Update(void)
 
 	Update_Rect();
 
-	return 0;
+	return OBJ_NOEVENT;
 }
 
 void CBullet2::Late_Update(void)
