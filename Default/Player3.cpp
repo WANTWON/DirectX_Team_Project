@@ -39,10 +39,15 @@ void CPlayer3::Initialize(void)
 int CPlayer3::Update(void)
 {
 #pragma region 복습 1
+	
 
 	//m_tInfo.vDir = ::Get_Mouse() - m_tInfo.vPos;
 
 	/*float	fLength = sqrtf(m_tInfo.vDir.x * m_tInfo.vDir.x + m_tInfo.vDir.y * m_tInfo.vDir.y);
+
+
+	float fDot = D3DXVec3Dot(&m_tInfo.vDir, &m_tInfo.vLook);
+    float	fAngle = acosf(fDot);
 
 	m_tInfo.vDir.x /= fLength;
 	m_tInfo.vDir.y /= fLength;
@@ -54,9 +59,10 @@ int CPlayer3::Update(void)
 	m_tInfo.vLook.y /= fLength2;
 	m_tInfo.vLook.z = 0.f;
 
+	
 	float	fDot = m_tInfo.vDir.x * m_tInfo.vLook.x + m_tInfo.vDir.y * m_tInfo.vLook.y;
 
-	float	fAngle = acosf(fDot);
+	
 
 	if (m_tInfo.vPos.y < ::Get_Mouse().y)
 	fAngle = 2.f * D3DX_PI - fAngle;
@@ -91,6 +97,8 @@ int CPlayer3::Update(void)
 
 	m_tInfo.vPos.x += cosf(fAngle) * m_fSpeed;
 	m_tInfo.vPos.y -= sinf(fAngle) * m_fSpeed;*/
+
+	
 
 
 #pragma endregion DIRECT 함수를 이용한 과제 풀이

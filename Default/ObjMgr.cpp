@@ -15,9 +15,34 @@ CObjMgr::~CObjMgr()
 	Release();
 }
 
-CObj* CObjMgr::Get_Target(OBJID _ID, CObj* pObj)
+
+
+CObj* CObjMgr::Get_Target(OBJID eID, CObj* pObj)
 {
-	return nullptr;
+	if (m_pObjList[eID].empty())
+		return nullptr;
+
+	CObj*		pTarget = nullptr;
+	float		fDistance = 0.f;
+
+	for (auto& iter : m_pObjList[eID])
+	{
+		if (iter->Get_bDead())
+			continue;
+
+		float	fWidth = abs(iter->Get_Info().vPos.x - pObj->Get_Info().vPos.x);
+		float	fHeight = abs(iter->Get_Info().vPos.y - pObj->Get_Info().vPos.y);
+
+		float	fDiagonal = sqrtf(fWidth * fWidth + fHeight * fHeight);
+
+		if (!pTarget || (fDistance > fDiagonal))
+		{
+			pTarget = iter;
+			fDistance = fDiagonal;
+		}
+	}
+
+	return pTarget;
 }
 
 

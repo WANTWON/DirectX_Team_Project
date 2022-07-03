@@ -14,9 +14,12 @@ public:
 		m_tInfo.vPos.x = _fX;
 		m_tInfo.vPos.y = _fY;
 	}
+
+	void		Set_TOWERTYPE(TOWERTYPE type) { m_Ttype = type; }
 	void Set_PosY(float _fY) { m_tInfo.vPos.y += _fY; }
 	void Set_PosX(float _fX) { m_tInfo.vPos.x += _fX; }
 	void Set_bDead() { m_bDead = true; }
+	bool Get_bDead(void) { return m_bDead; }
 	void Set_Angle(float _fAngle) { m_fAngle = _fAngle; }
 	const INFO&		Get_Info(void)const { return m_tInfo; }
 	const RECT&		Get_Rect(void) const { return m_tRect; }
@@ -44,6 +47,7 @@ protected:
 	float		m_fSpeed;
 	float       m_fAngle;
 	RECT		m_tRect;
+	CObj*		m_pTarget;
 	
 	OBJID		m_eID;
 	DWORD		m_dwTime;

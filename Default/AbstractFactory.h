@@ -33,6 +33,20 @@ public:
 		return pInstance;
 	}
 
+	static CObj*		Create(float _fX, float _fY, TOWERTYPE eType)
+	{
+
+		CObj*		pInstance = new T;
+
+		
+			pInstance->Set_TOWERTYPE(eType);
+
+		pInstance->Initialize();
+		pInstance->Set_Pos(_fX, _fY);
+
+		return pInstance;
+	}
+
 public:
 	CAbstractFactory() {	}
 	~CAbstractFactory() { }

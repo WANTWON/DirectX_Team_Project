@@ -172,6 +172,7 @@
     <ClInclude Include="Item2.h" />
     <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="MainGame.h" />
+    <ClInclude Include="Maintower3.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Monster4.h" />
     <ClInclude Include="Monster2.h" />
@@ -213,6 +214,7 @@
     <ClCompile Include="Item2.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="Maintower3.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Monster4.cpp" />
     <ClCompile Include="Monster2.cpp" />
