@@ -44,7 +44,7 @@ void CItem::Late_Update(void)
 void CItem::Render(HDC hDC)
 {
 
-	Rectangle(hDC,
+	Ellipse(hDC,
 		m_rc.left,
 		m_rc.top,
 		m_rc.right,

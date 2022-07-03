@@ -8,6 +8,8 @@
 #include "Tail.h"
 #include "Item.h"
 #include "SceneMgr.h"
+#include "Monster1.h"
+#include "Bullet1.h"
 CPlayer1::CPlayer1()
 	:m_fAngle(0), m_iTailSize(0.f), m_dTime(GetTickCount()), m_bDead(false), m_iScore(0), m_dDeadTime(GetTickCount()), m_bDeadTime(false)
 , m_Clear(false)
@@ -86,6 +88,27 @@ int CPlayer1::Update(void)
 		for (; iter != CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)->end(); ++iter)
 		{
 			if (IntersectRect(&rc, &m_rc[i], &dynamic_cast<CTail*>(*iter)->Get_Rect()))
+				m_bDead = true;
+		}
+	}
+
+	for (int i = 0; i < 2; ++i)
+	{
+		RECT rc;
+		auto& iter = CObjMgr::Get_Instance()->Get_IDlist(OBJ_BLOCK)->begin();
+		for (; iter != CObjMgr::Get_Instance()->Get_IDlist(OBJ_BLOCK)->end(); ++iter)
+		{
+			if (IntersectRect(&rc, &m_rc[i], &dynamic_cast<CMonster1*>(*iter)->Get_Rect()))
+				m_bDead = true;
+		}
+	}
+	for (int i = 0; i < 2; ++i)
+	{
+		RECT rc;
+		auto& iter = CObjMgr::Get_Instance()->Get_IDlist(OBJ_BULLET)->begin();
+		for (; iter != CObjMgr::Get_Instance()->Get_IDlist(OBJ_BULLET)->end(); ++iter)
+		{
+			if (IntersectRect(&rc, &m_rc[i], &dynamic_cast<CBullet1*>(*iter)->Get_Rect()))
 				m_bDead = true;
 		}
 	}

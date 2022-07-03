@@ -100,7 +100,7 @@ int CPlayer2::Update(void)
 
 	if (vBDir.x * vecGunLook.y - vBDir.y * vecGunLook.x > 0)
 		m_fPosinAngle = 2 * D3DX_PI - m_fPosinAngle;
-
+	
 	m_vGunPoint = m_vOriginGunPoint;
 	m_vGunPoint -= {400.f, 300.f, 0.f };
 	D3DXMatrixRotationZ(&matGunRotZ, m_fPosinAngle);
