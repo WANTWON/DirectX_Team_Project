@@ -76,15 +76,6 @@ int CPlayer4::Update(void)
 	m_vPosin.y = sinf(m_fPosinAngle)*vTemp.x + cosf(m_fPosinAngle)*vTemp.y;
 	m_vPosin += m_tInfo.vPos;
 
-	if (m_bClear)
-	{
-		if (CKeyMgr::Get_Instance()->Key_Down(VK_RETURN))
-		{
-			CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
-			return OBJ_DEAD;
-		}
-	}
-
 	return OBJ_NOEVENT;
 }
 
