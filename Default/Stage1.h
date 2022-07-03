@@ -19,5 +19,6 @@ private:
 private:
 	DWORD m_dtime;
 	DWORD m_dtime2;
+	int m_iSpeed;
 };
 
