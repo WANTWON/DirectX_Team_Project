@@ -28,7 +28,7 @@ int CStage1::Update(void)
 		Create_Item();
 		m_dtime = GetTickCount();
 	}
-	if (m_dtime2 + (7000 - m_iSpeed) < GetTickCount())
+	if (m_dtime2 + (5000 - m_iSpeed) < GetTickCount())
 	{
 		Create_Monster();
 		m_dtime2 = GetTickCount();
@@ -63,5 +63,6 @@ void CStage1::Create_Monster()
 	float fTemp = rand() % 780 + 11;
 	float fDest = rand() % 580 + 11;
 	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CMonster1>::Create(fTemp, fDest));
-	m_iSpeed += 10;
+	if(m_iSpeed < 4000)
+		m_iSpeed += 100;
 }
