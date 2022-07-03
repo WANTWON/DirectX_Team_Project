@@ -17,7 +17,11 @@ public:
 	virtual void Render(HDC hDC) override;
 	virtual void Release(void) override;
 
+
+	void move();
+
 private:
 	CObj*			m_pPlayer = nullptr;
+
 
 };

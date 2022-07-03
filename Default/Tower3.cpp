@@ -37,15 +37,31 @@ void CTower3::Initialize(void)
 		m_vOriginGunPoint = m_vGunPoint;
 	}
 
-	if (m_Ttype == TOWER_HEART)
-	{
+	else
+	    m_tInfo.vPos = { 400.f, 300.f, 0.f };
+		m_tInfo.vLook = { 0.f, -1.f, 0.f };
 
-	}
+		m_fSpeed = 10.f;
 
+		m_vPoint[0] = { m_tInfo.vPos.x - 50.f, m_tInfo.vPos.y - 50.f, 0.f };
+		m_vPoint[1] = { m_tInfo.vPos.x + 50.f, m_tInfo.vPos.y - 50.f, 0.f };
+		m_vPoint[2] = { m_tInfo.vPos.x + 50.f, m_tInfo.vPos.y + 50.f, 0.f };
+		m_vPoint[3] = { m_tInfo.vPos.x - 50.f, m_tInfo.vPos.y + 50.f, 0.f };
 
+		for (int i = 0; i < 4; ++i)
+			m_vOriginPoint[i] = m_vPoint[i];   // 점이니까 포문으로 하나씩 연산 다박아야하니까
 
+											   // 포신
 
+		m_vGunPoint = { m_tInfo.vPos.x, m_tInfo.vPos.y - 100.f, 0.f };
+		m_vOriginGunPoint = m_vGunPoint;
+	
 }
+
+
+
+
+
 
 int CTower3::Update(void)
 {
@@ -59,6 +75,7 @@ int CTower3::Update(void)
 
 	m_tInfo.vPos += m_tInfo.vDir * m_fSpeed;
 
+	Update_Rect();
 	return OBJ_NOEVENT;
 }
 
@@ -69,11 +86,8 @@ void CTower3::Late_Update(void)
 
 void CTower3::Render(HDC hDC)
 {
-	Ellipse(hDC,
-		int(m_tInfo.vPos.x - 50.f),
-		int(m_tInfo.vPos.y - 50.f),
-		int(m_tInfo.vPos.x + 50.f),
-		int(m_tInfo.vPos.y + 50.f));
+	Rectangle(hDC,
+		m_tRect.left, m_tRect.top, m_tRect.right, m_tRect.bottom);
 }
 
 void CTower3::Release(void)
