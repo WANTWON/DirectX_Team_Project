@@ -47,9 +47,11 @@ void CPlayer4::Initialize(void)
 
 int CPlayer4::Update(void)
 {
-
-	Key_Input();
-	Jumping();
+	if (!m_bDead)
+	{
+		Key_Input();
+		Jumping();
+	}
 	if (m_bDead)
 	{
 		if (m_bClear)
