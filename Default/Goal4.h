@@ -1,10 +1,11 @@
 #pragma once
 #include "Obj.h"
-class CBullet3 : public CObj
+class CGoal4 :
+	public CObj
 {
 public:
-	CBullet3();
-	virtual ~CBullet3();
+	CGoal4();
+	virtual ~CGoal4();
 
 public:
 	virtual void Initialize(void) override;
@@ -13,16 +14,10 @@ public:
 	virtual void Render(HDC hDC) override;
 	virtual void Release(void) override;
 
-
-
-
-
 private:
-	D3DXVECTOR3			m_vPoint[4];
-	D3DXVECTOR3			m_vOriginPoint[4];
+	D3DXVECTOR3	m_pPoint[4];
+	D3DXVECTOR3	m_pOriginPoint[4];
 
-	D3DXVECTOR3			m_vGunPoint;
-	D3DXVECTOR3			m_vOriginGunPoint;
-
+	bool m_bCount;
 };
 

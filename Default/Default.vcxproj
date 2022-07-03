@@ -159,23 +159,33 @@
     <ClInclude Include="BmpMgr.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Bullet3.h" />
+    <ClInclude Include="Bullet4.h" />
+    <ClInclude Include="Bullet2.h" />
     <ClInclude Include="CollisionMgr.h" />
     <ClInclude Include="Default.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Function.h" />
+    <ClInclude Include="Goal4.h" />
     <ClInclude Include="Include.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="Item2.h" />
     <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Monster.h" />
+    <ClInclude Include="Monster4.h" />
+    <ClInclude Include="Monster2.h" />
+    <ClInclude Include="Monster3.h" />
     <ClInclude Include="MyBmp.h" />
     <ClInclude Include="MyButton.h" />
     <ClInclude Include="MyMenu.h" />
     <ClInclude Include="Obj.h" />
     <ClInclude Include="ObjMgr.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Player1.h" />
+    <ClInclude Include="Player2.h" />
     <ClInclude Include="Player4.h" />
-    <ClInclude Include="Player3.h" />
+    <ClInclude Include="PosinMonster2.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneMgr.h" />
@@ -185,25 +195,39 @@
     <ClInclude Include="Stage4.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Struct.h" />
+    <ClInclude Include="Tail.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Tower3.h" />
+    <ClInclude Include="Player3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BmpMgr.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Bullet3.cpp" />
+    <ClCompile Include="Bullet4.cpp" />
+    <ClCompile Include="Bullet2.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Default.cpp" />
+    <ClCompile Include="Goal4.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Item2.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="Monster4.cpp" />
+    <ClCompile Include="Monster2.cpp" />
+    <ClCompile Include="Monster3.cpp" />
     <ClCompile Include="MyBmp.cpp" />
     <ClCompile Include="MyButton.cpp" />
     <ClCompile Include="MyMenu.cpp" />
     <ClCompile Include="Obj.cpp" />
     <ClCompile Include="ObjMgr.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Player4.cpp" />
+    <ClCompile Include="Player1.cpp" />
+    <ClCompile Include="Player2.cpp" />
     <ClCompile Include="Player3.cpp" />
+    <ClCompile Include="Player4.cpp" />
+    <ClCompile Include="PosinMonster2.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneMgr.cpp" />
     <ClCompile Include="Stage1.cpp" />
@@ -216,6 +240,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Tail.cpp" />
+    <ClCompile Include="Tower3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Default.rc" />

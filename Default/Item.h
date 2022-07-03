@@ -1,12 +1,11 @@
 #pragma once
-
 #include "Obj.h"
 
-class CPlayer3 : public CObj
+class CItem : public CObj
 {
 public:
-	CPlayer3();
-	virtual ~CPlayer3();
+	CItem();
+	virtual ~CItem();
 
 public:
 	virtual void Initialize(void) override;
@@ -14,16 +13,14 @@ public:
 	virtual void Late_Update(void) override;
 	virtual void Render(HDC hDC) override;
 	virtual void Release(void) override;
-
+	const RECT Get_Rect() const { return m_rc; }
+	void Set_Dead() { m_bDead = true; }
 private:
-	void		Key_Input(void);
-
-
+	void		Update_Rect();
 private:
-	D3DXVECTOR3			m_vPoint[4];
+	float		m_fAngle;
 	D3DXVECTOR3			m_vOriginPoint[4];
-
-	D3DXVECTOR3			m_vGunPoint;
-	D3DXVECTOR3			m_vOriginGunPoint;
-
+	RECT m_rc;
+	bool			m_bDead;
+	DWORD m_dTime;
 };

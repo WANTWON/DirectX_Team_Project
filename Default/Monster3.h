@@ -1,10 +1,14 @@
 #pragma once
 #include "Obj.h"
-class CBullet3 : public CObj
+class CMonster3 :
+	public CObj
 {
 public:
-	CBullet3();
-	virtual ~CBullet3();
+	CMonster3();
+	virtual ~CMonster3();
+
+public:
+	void		Set_Player(CObj* pPlayer) { m_pPlayer = pPlayer; }
 
 public:
 	virtual void Initialize(void) override;
@@ -14,15 +18,10 @@ public:
 	virtual void Release(void) override;
 
 
-
-
+	void move();
 
 private:
-	D3DXVECTOR3			m_vPoint[4];
-	D3DXVECTOR3			m_vOriginPoint[4];
+	CObj*			m_pPlayer = nullptr;
 
-	D3DXVECTOR3			m_vGunPoint;
-	D3DXVECTOR3			m_vOriginGunPoint;
 
 };
-

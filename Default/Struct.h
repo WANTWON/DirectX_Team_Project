@@ -10,8 +10,8 @@ typedef struct tagInfo
 	D3DXVECTOR3		vLook;		// 방향 벡터
 	D3DXVECTOR3		vNormal;	// 법선 벡터
 
-	D3DXMATRIX      matWorld;	// 월드 행렬
-	
+	D3DXMATRIX		matWorld;
+
 }INFO;
 
 

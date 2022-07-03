@@ -13,5 +13,9 @@ public:
 	void Late_Update(void);
 	void Release(void);
 	void Render(HDC hDC);
+private:
+	void Create_Item();
+private:
+	DWORD m_dtime;
 };
 
