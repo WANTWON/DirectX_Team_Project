@@ -45,7 +45,7 @@ int CMouse::Update(void)
 		CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<BOSSM>::Create((float)Pt.x, (float)Pt.y));
 	}
 
-	if (CKeyMgr::Get_Instance()->Key_Down('D') && dynamic_cast<Maintower3*>((*CObjMgr::Get_Instance()->Get_IDlist(OBJ_MAINTOWER)).front())->get_Money() >= 50)
+	if (CKeyMgr::Get_Instance()->Key_Down('8') && dynamic_cast<Maintower3*>((*CObjMgr::Get_Instance()->Get_IDlist(OBJ_MAINTOWER)).front())->get_Money() >= 50)
 	{
 		CObjMgr::Get_Instance()->Add_Object(OBJ_TOWER, CAbstractFactory<CTower3>::Create((float)Pt.x, (float)Pt.y));
 		dynamic_cast<Maintower3*>((*CObjMgr::Get_Instance()->Get_IDlist(OBJ_MAINTOWER)).front())->minus_Money();

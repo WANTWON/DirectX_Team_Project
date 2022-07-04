@@ -145,8 +145,14 @@ void Maintower3::Late_Update(void)
 	if (m_iHp <= 0)
 	{
 		m_bDead = true;
-		CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
+		auto& iterPlayer = CObjMgr::Get_Instance()->Get_IDlist(OBJ_PLAYER)->begin();
+		
+		for (; iterPlayer != CObjMgr::Get_Instance()->Get_IDlist(OBJ_PLAYER)->end(); ++iterPlayer)
+			Safe_Delete<CObj*>(*iterPlayer);
+		CObjMgr::Get_Instance()->Get_IDlist(OBJ_PLAYER)->clear();
 
+
+		CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
 	}
 
 }
@@ -183,11 +189,11 @@ void Maintower3::Render(HDC hDC)
 		int(m_tInfo.vPos.y + 50.f));*/
 
 
-	MoveToEx(hDC, m_vPoint[0].x, m_vPoint[0].y, nullptr);
+	MoveToEx(hDC, (int)m_vPoint[0].x, (int)m_vPoint[0].y, nullptr);
 
 	for (int i = 0; i < 4; ++i)
 	{
-		LineTo(hDC, m_vPoint[i].x, m_vPoint[i].y);
+		LineTo(hDC, (int)m_vPoint[i].x, (int)m_vPoint[i].y);
 
 		if (i > 0)
 			continue;
@@ -199,12 +205,12 @@ void Maintower3::Render(HDC hDC)
 			int(m_vPoint[i].y + 5.f));
 	}
 
-	LineTo(hDC, m_vPoint[0].x, m_vPoint[0].y);
+	LineTo(hDC, (int)m_vPoint[0].x, (int)m_vPoint[0].y);
 
 	// Æ÷½Å
-	MoveToEx(hDC, m_tInfo.vPos.x, m_tInfo.vPos.y, nullptr);
+	MoveToEx(hDC, (int)m_tInfo.vPos.x, (int)m_tInfo.vPos.y, nullptr);
 
-	LineTo(hDC, m_vGunPoint.x, m_vGunPoint.y);
+	LineTo(hDC, (int)m_vGunPoint.x, (int)m_vGunPoint.y);
 
 
 	

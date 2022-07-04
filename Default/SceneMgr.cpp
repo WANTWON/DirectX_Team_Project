@@ -96,6 +96,7 @@ void CSceneMgr::Reset_Stage()
 	auto& iterButton = CObjMgr::Get_Instance()->Get_IDlist(OBJ_BUTTON)->begin();
 	auto& iterTower = CObjMgr::Get_Instance()->Get_IDlist(OBJ_TOWER)->begin();
 	auto& iterMTower = CObjMgr::Get_Instance()->Get_IDlist(OBJ_MAINTOWER)->begin();
+	
 
 	for (; iterItem != CObjMgr::Get_Instance()->Get_IDlist(OBJ_ITEM)->end(); ++iterItem)
 		Safe_Delete<CObj*>(*iterItem);
@@ -111,6 +112,7 @@ void CSceneMgr::Reset_Stage()
 		Safe_Delete<CObj*>(*iterBullet);
 	for (; iterMTower != CObjMgr::Get_Instance()->Get_IDlist(OBJ_MAINTOWER)->end(); ++iterMTower)
 		Safe_Delete<CObj*>(*iterMTower);
+	
 
 	CObjMgr::Get_Instance()->Get_IDlist(OBJ_BULLET)->clear();
 	CObjMgr::Get_Instance()->Get_IDlist(OBJ_ITEM)->clear();
@@ -119,5 +121,6 @@ void CSceneMgr::Reset_Stage()
 	CObjMgr::Get_Instance()->Get_IDlist(OBJ_BUTTON)->clear();
 	CObjMgr::Get_Instance()->Get_IDlist(OBJ_TOWER)->clear();
 	CObjMgr::Get_Instance()->Get_IDlist(OBJ_MAINTOWER)->clear();
+	
 	
 }
