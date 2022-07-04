@@ -39,7 +39,7 @@ int CMouse::Update(void)
 
 	Update_Rect();
 
-	ShowCursor(false);	// 마우스 커서 출력을 제어하는 함수
+	//ShowCursor(false);	// 마우스 커서 출력을 제어하는 함수
 	if (CKeyMgr::Get_Instance()->Key_Down('B'))
 	{
 		CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<BOSSM>::Create((float)Pt.x, (float)Pt.y));
@@ -62,11 +62,11 @@ void CMouse::Late_Update(void)
 
 void CMouse::Render(HDC hDC)
 {
-	Ellipse(hDC,
+	/*Ellipse(hDC,
 		int(m_tInfo.vPos.x - 20.f),
 		int(m_tInfo.vPos.y - 20.f),
 		int(m_tInfo.vPos.x + 20.f),
-		int(m_tInfo.vPos.y + 20.f));
+		int(m_tInfo.vPos.y + 20.f));*/
 
 }
 
