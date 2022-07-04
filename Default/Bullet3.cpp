@@ -3,6 +3,7 @@
 #include "CollisionMgr.h"
 #include "ObjMgr.h"
 #include "Monster3.h"
+#include "Maintower3.h"
 
 
 CBullet3::CBullet3() 
@@ -101,8 +102,13 @@ void CBullet3::Late_Update(void)
 ////		dynamic_cast<CMonster3*>((*CObjMgr::Get_Instance()->Get_IDlist(OBJ_PLAYER)).front())->Set_Score(10);
 //	}
 
-	if (m_dwTime + 700 < GetTickCount())
+	if (m_dwTime + 750 < GetTickCount())
+	{
 		m_bDead = true;
+
+		m_dwTime = GetTickCount();
+	}
+		
 
 	if (m_tInfo.vPos.x < 0 || m_tInfo.vPos.x > WINCX - 10 || m_tInfo.vPos.y < 0 || m_tInfo.vPos.y > WINCY - 10)
 	{
@@ -110,10 +116,10 @@ void CBullet3::Late_Update(void)
 	}
 
 	
-	if (m_tInfo.vPos.x >= WINCX || m_tInfo.vPos.x <= 0)
+	/*if (m_tInfo.vPos.x >= WINCX || m_tInfo.vPos.x <= 0)
 		m_bDead = true;
 	if (m_tInfo.vPos.y >= WINCY || m_tInfo.vPos.y <= 0)
-		m_bDead = true;
+		m_bDead = true;*/
 		
 
 
@@ -132,7 +138,8 @@ void CBullet3::Late_Update(void)
 	if (CCollisionMgr::Collision_Sphere(*(CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)), this))
 	{
 		m_bDead = true;
-		//dynamic_cast<CPlayer4*>((*CObjMgr::Get_Instance()->Get_IDlist(OBJ_PLAYER)).front())->Set_Score(100);
+		
+		
 	}
 
 	Update_Rect();

@@ -123,7 +123,7 @@
     </Filter>
     <Filter Include="01. Obj\02. Obj_2\03. Monster2\02. PosinMonster2">
       <UniqueIdentifier>{717baf11-12ef-4aab-9680-a8cca65eb9ee}</UniqueIdentifier>
-</Filter>
+    </Filter>
     <Filter Include="01. Obj\04. Obj_4\43. Goal">
       <UniqueIdentifier>{afbb60bc-fe13-4aef-86c9-5531d64519de}</UniqueIdentifier>
     </Filter>
@@ -159,6 +159,9 @@
     </Filter>
     <Filter Include="01. Obj\03. Obj_3\36.BulletM3">
       <UniqueIdentifier>{7f78b17f-063e-4d9b-9525-e7de7873124d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. Obj_3\37.BOSS">
+      <UniqueIdentifier>{1c7b0727-2ed3-44dd-9f98-7259e08e0e4b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -324,6 +327,9 @@
     <ClInclude Include="BulletM3.h">
       <Filter>01. Obj\03. Obj_3\36.BulletM3</Filter>
     </ClInclude>
+    <ClInclude Include="BOSSM.h">
+      <Filter>01. Obj\03. Obj_3\37.BOSS</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -421,7 +427,7 @@
     </ClCompile>
     <ClCompile Include="NormalItem2.cpp">
       <Filter>01. Obj\02. Obj_2\04. Item2\01. NormalItem2</Filter>
-  </ClCompile>
+    </ClCompile>
     <ClCompile Include="Monster2.cpp">
       <Filter>01. Obj\02. Obj_2\03. Monster2</Filter>
     </ClCompile>
@@ -460,6 +466,9 @@
     </ClCompile>
     <ClCompile Include="BulletM3.cpp">
       <Filter>01. Obj\03. Obj_3\36.BulletM3</Filter>
+    </ClCompile>
+    <ClCompile Include="BOSSM.cpp">
+      <Filter>01. Obj\03. Obj_3\37.BOSS</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

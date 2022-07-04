@@ -50,6 +50,7 @@ protected:
 	RECT		m_tRect;
 	CObj*		m_pTarget;
 	
+	
 	OBJID		m_eID;
 
 	D3DXVECTOR3 m_pDirVector;

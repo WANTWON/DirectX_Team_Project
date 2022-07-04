@@ -11,6 +11,9 @@
 Maintower3::Maintower3()
 {
 	m_iHp = 15;
+	m_iMoney = 0;
+	m_iScore = 0;
+	m_bosscount = 0;
 }
 
 Maintower3::~Maintower3()
@@ -151,8 +154,19 @@ void Maintower3::Late_Update(void)
 void Maintower3::Render(HDC hDC)
 {
 
+
+	TCHAR szMoney[32] = L"";
+	TCHAR szHP[32] = L"";
 	TCHAR szScore[32] = L"";
-	swprintf_s(szScore, L"HP :  %d", m_iHp);
+	TCHAR szBULLET[32] = L"";
+	TCHAR szMONSTER[32] = L"";
+	swprintf_s(szBULLET, L"총알숫자 :  %d", CObjMgr::Get_Instance()->Get_IDlist(OBJ_BULLET)->size());
+	swprintf_s(szMONSTER, L"몬스터숫자 :  %d", CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)->size());
+	swprintf_s(szScore, L"Kill :  %d", m_iScore);
+	swprintf_s(szHP, L"HP :  %d", m_iHp);
+	swprintf_s(szMoney, L"Money :  %d", m_iMoney);
+
+
 	//TCHAR szClear[32] = L"";
 	//swprintf_s(szClear, L"최종 Score :  %d", m_iHp);
 
@@ -196,10 +210,15 @@ void Maintower3::Render(HDC hDC)
 	
 
 	if (!m_bDead)
-		TextOut(hDC, 20, 20, szScore, lstrlen(szScore));
+	{
+		TextOut(hDC, 20, 20, szHP, lstrlen(szHP));
+		TextOut(hDC, 20, 40, szMoney, lstrlen(szMoney));
+		TextOut(hDC, 20, 60, szScore, lstrlen(szScore));
 
-
+	}
 	
+	TextOut(hDC, 120, 20, szBULLET, lstrlen(szBULLET));
+	TextOut(hDC, 220, 20, szMONSTER, lstrlen(szMONSTER));
 
 }
 

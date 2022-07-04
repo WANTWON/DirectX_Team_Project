@@ -102,19 +102,24 @@ void CBulletM3::Late_Update(void)
 	////		dynamic_cast<CMonster3*>((*CObjMgr::Get_Instance()->Get_IDlist(OBJ_PLAYER)).front())->Set_Score(10);
 	//	}
 
-	if (m_dwTime + 700 < GetTickCount())
+	/*if (m_dwTime + 700 < GetTickCount())
+	{
 		m_bDead = true;
 
-	if (m_tInfo.vPos.x < 0 || m_tInfo.vPos.x > WINCX - 10 || m_tInfo.vPos.y < 0 || m_tInfo.vPos.y > WINCY - 10)
+		m_dwTime = GetTickCount();
+	}*/
+		
+
+	if (m_tInfo.vPos.x < 0 || m_tInfo.vPos.x > WINCX  || m_tInfo.vPos.y < 0 || m_tInfo.vPos.y > WINCY )
 	{
 		m_bDead = true;
 	}
 
 
-	if (m_tInfo.vPos.x >= WINCX || m_tInfo.vPos.x <= 0)
+	/*if (m_tInfo.vPos.x >= WINCX || m_tInfo.vPos.x <= 0)
 		m_bDead = true;
 	if (m_tInfo.vPos.y >= WINCY || m_tInfo.vPos.y <= 0)
-		m_bDead = true;
+		m_bDead = true;*/
 
 
 
