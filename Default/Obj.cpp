@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Obj.h"
 
-CObj::CObj() : m_fSpeed(0.f), m_bDead(false), m_eID(OBJ_END) , m_fAngle(0.f)
+CObj::CObj() : m_fSpeed(0.f), m_bDead(false), m_eID(OBJ_END) , m_fAngle(0.f), m_dwTime(GetTickCount())
 {
 	ZeroMemory(&m_tInfo, sizeof(INFO));
 }

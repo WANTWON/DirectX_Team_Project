@@ -31,4 +31,5 @@ private:
 	bool				m_bDeadTime;
 	bool				m_Clear;
 	int					m_iScore;
+	
 };

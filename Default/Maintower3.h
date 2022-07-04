@@ -14,6 +14,22 @@ public:
 	virtual void Render(HDC hDC) override;
 	virtual void Release(void) override;
 
+
+public:
+	void set_Money(void) { m_iMoney += rand()%4 ; }
+	void minus_Money(void) { m_iMoney -= 50; }
+ 	int get_Money(void) {return m_iMoney;}
+
+	int Get_Score(void) { return m_iScore; }
+	void Set_Score(void) { ++m_iScore; }
+
+	void Set_bcount(void) { ++m_bosscount; }
+	int Get_bcount(void) { return m_bosscount; }
+
+
+	
+	// {return m_iMoney;)
+
 private:
 
 
@@ -26,6 +42,12 @@ private:
 
 private:
 	int m_iHp;
+	int m_iMoney;
+	int m_iScore;
+	int 	m_bosscount;
+
+	
+
 
 
 };
