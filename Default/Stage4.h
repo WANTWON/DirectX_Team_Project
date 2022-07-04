@@ -13,5 +13,10 @@ public:
 	void Late_Update(void);
 	void Release(void);
 	void Render(HDC hDC);
+
+private:
+	bool m_bClear = false;
+	bool m_bCount = false;
+	DWORD m_dwTime;
 };
 

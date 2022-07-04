@@ -13,5 +13,11 @@ public:
 	void Late_Update(void);
 	void Release(void);
 	void Render(HDC hDC);
+
+
+	int moncreate;
+	int um;
+	DWORD		m_dwTime;
+
 };
 
