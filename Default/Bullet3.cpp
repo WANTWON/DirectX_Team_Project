@@ -5,7 +5,7 @@
 #include "Monster3.h"
 
 
-CBullet3::CBullet3()
+CBullet3::CBullet3() 
 {
 }
 
