@@ -15,9 +15,13 @@ public:
 	virtual void Release(void) override;
 
 public:
-	void		Set_Dir(D3DXVECTOR3 eDir) { m_eDir = eDir; }
-	void		Set_Angle(float _fAngle) { m_fAngle = _fAngle; }
+	void	Set_Dir(D3DXVECTOR3 eDir) { m_eDir = eDir; }
+	void	Set_Angle(float _fAngle) { m_fAngle = _fAngle; }
+	void	Set_BulletType(OBJID _ObjID) { m_eBulletType = _ObjID; }
+	void	Set_Dead() { m_bDead = true; }
 
+
+	OBJID	Get_BulletType() { return m_eBulletType; }
 
 private:
 	D3DXVECTOR3		m_vPoint[3];
@@ -26,5 +30,6 @@ private:
 	D3DXVECTOR3		m_eDir;
 	float			m_fAngle;
 	bool			m_bDead;
+	OBJID			m_eBulletType;
 };
 

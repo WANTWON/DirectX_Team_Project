@@ -7,7 +7,7 @@
 #include "Monster1.h"
 
 CStage1::CStage1()
-	:m_dtime(GetTickCount()), m_dtime2(GetTickCount())
+	:m_dtime(GetTickCount()), m_dtime2(GetTickCount()), m_iSpeed(0)
 {
 }
 
@@ -28,7 +28,7 @@ int CStage1::Update(void)
 		Create_Item();
 		m_dtime = GetTickCount();
 	}
-	if (m_dtime2 + 7000 < GetTickCount())
+	if (m_dtime2 + (5000 - m_iSpeed) < GetTickCount())
 	{
 		Create_Monster();
 		m_dtime2 = GetTickCount();
@@ -63,4 +63,6 @@ void CStage1::Create_Monster()
 	float fTemp = rand() % 780 + 11;
 	float fDest = rand() % 580 + 11;
 	CObjMgr::Get_Instance()->Add_Object(OBJ_BLOCK, CAbstractFactory<CMonster1>::Create(fTemp, fDest));
+	if(m_iSpeed < 4000)
+		m_iSpeed += 100;
 }

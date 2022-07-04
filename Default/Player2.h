@@ -15,8 +15,13 @@ public:
 	virtual		void	Release(void) override;
 
 private:
-	void			Key_Input(void);
-	CObj*			Create_Bullet(DIRECTION eDir);
+	void	Key_Input(void);
+	CObj*	Create_Bullet(DIRECTION eDir);
+	void	Collision_Check();
+
+public:
+	void	Set_iScore() { m_iScore += 10; }
+	bool	Get_PlayerDead() { return m_bPlayerDead; }
 
 private:
 	D3DXVECTOR3		m_vPoint[4];
@@ -32,5 +37,12 @@ private:
 	DWORD			m_dBulletTime;
 	bool			m_bDead;
 	list<CObj*>*	m_pBullet;
+
+	int				m_iHp;
+	bool			m_bInvincible;
+	DWORD			m_dInvincible;
+	int				m_iScore;
+	bool			m_bPlayerDead;
+
 };
 

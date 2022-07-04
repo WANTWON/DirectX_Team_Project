@@ -112,6 +112,18 @@
     <Filter Include="01. Obj\02. Obj_2\04. Item2">
       <UniqueIdentifier>{4d36ff5f-31ac-4a18-be04-1c81780c569d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\02. Obj_2\04. Item2\02. ShieldItem2">
+      <UniqueIdentifier>{a8320c76-f7b7-4820-b12e-17e3f25275c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\02. Obj_2\04. Item2\01. NormalItem2">
+      <UniqueIdentifier>{f17b2d56-62f0-41e5-80de-d13d4a166149}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\02. Obj_2\03. Monster2\01. NormalMonster2">
+      <UniqueIdentifier>{5893b754-90b1-4e1f-b7b5-7eca96bc334c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\02. Obj_2\03. Monster2\02. PosinMonster2">
+      <UniqueIdentifier>{717baf11-12ef-4aab-9680-a8cca65eb9ee}</UniqueIdentifier>
+</Filter>
     <Filter Include="01. Obj\04. Obj_4\43. Goal">
       <UniqueIdentifier>{afbb60bc-fe13-4aef-86c9-5531d64519de}</UniqueIdentifier>
     </Filter>
@@ -261,8 +273,20 @@
     <ClInclude Include="MainGame.h">
       <Filter>00. MainGame</Filter>
     </ClInclude>
+    <ClInclude Include="Monster2.h">
+      <Filter>01. Obj\02. Obj_2\03. Monster2\01. NormalMonster2</Filter>
+    </ClInclude>
     <ClInclude Include="PosinMonster2.h">
-      <Filter>01. Obj\02. Obj_2\03. Monster2</Filter>
+      <Filter>01. Obj\02. Obj_2\03. Monster2\02. PosinMonster2</Filter>
+    </ClInclude>
+    <ClInclude Include="ShieldItem2.h">
+      <Filter>01. Obj\02. Obj_2\04. Item2\02. ShieldItem2</Filter>
+    </ClInclude>
+    <ClInclude Include="Item2.h">
+      <Filter>01. Obj\02. Obj_2\04. Item2</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalItem2.h">
+      <Filter>01. Obj\02. Obj_2\04. Item2\01. NormalItem2</Filter>
     </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>01. Obj\JAEHUN\02.Item</Filter>
@@ -383,9 +407,21 @@
     <ClCompile Include="Bullet2.cpp">
       <Filter>01. Obj\02. Obj_2\02. Bullet2</Filter>
     </ClCompile>
+    <ClCompile Include="Monster2.cpp">
+      <Filter>01. Obj\02. Obj_2\03. Monster2\01. NormalMonster2</Filter>
+    </ClCompile>
+    <ClCompile Include="PosinMonster2.cpp">
+      <Filter>01. Obj\02. Obj_2\03. Monster2\02. PosinMonster2</Filter>
+    </ClCompile>
+    <ClCompile Include="ShieldItem2.cpp">
+      <Filter>01. Obj\02. Obj_2\04. Item2\02. ShieldItem2</Filter>
+    </ClCompile>
     <ClCompile Include="Item2.cpp">
       <Filter>01. Obj\02. Obj_2\04. Item2</Filter>
     </ClCompile>
+    <ClCompile Include="NormalItem2.cpp">
+      <Filter>01. Obj\02. Obj_2\04. Item2\01. NormalItem2</Filter>
+  </ClCompile>
     <ClCompile Include="Monster2.cpp">
       <Filter>01. Obj\02. Obj_2\03. Monster2</Filter>
     </ClCompile>
