@@ -71,7 +71,11 @@ int CTower3::Update(void)
 	//m_tInfo.vDir = m_pPlayer->Get_Info().vPos - m_tInfo.vPos; // 뒤에있는(몬스터)벡터가 앞에있는(플레이어)벡터를 바라보는 방향이나옴  플레이어의 위치백터 - 몬스터의 위치백터 이값을 몬스터의 vDir 즉 방향벡터변수에 넣어주자!
 
 	m_pTarget = CObjMgr::Get_Instance()->Get_Target(OBJ_MONSTER, this);
-	m_tInfo.vDir = m_pTarget->Get_Info().vPos - m_tInfo.vPos;
+	if (m_pTarget)
+	{
+		m_tInfo.vDir = m_pTarget->Get_Info().vPos - m_tInfo.vPos;
+	}
+	
 
 	D3DXVec3Normalize(&m_tInfo.vDir, &m_tInfo.vDir);
 	D3DXVec3Normalize(&m_tInfo.vLook, &m_tInfo.vLook);
@@ -106,9 +110,13 @@ int CTower3::Update(void)
 	D3DXVec3TransformCoord(&m_vGunPoint, &m_vGunPoint, &m_tInfo.matWorld);
 
 
-	if (m_dwTime + 1000 < GetTickCount())
+	if (m_dwTime + 300 < GetTickCount())
 	{
-		CObjMgr::Get_Instance()->Add_Object(OBJ_BULLET, CAbstractFactory<CBullet3>::Create(float(m_vGunPoint.x), float(m_vGunPoint.y), m_fAngle));
+		if (m_pTarget)
+		{
+			CObjMgr::Get_Instance()->Add_Object(OBJ_BULLET, CAbstractFactory<CBullet3>::Create(float(m_vGunPoint.x), float(m_vGunPoint.y), m_fAngle));
+		}
+		
 
 		m_dwTime = GetTickCount();
 	}

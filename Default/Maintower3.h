@@ -23,4 +23,9 @@ private:
 	D3DXVECTOR3			m_vGunPoint;
 	D3DXVECTOR3			m_vOriginGunPoint;
 
+
+private:
+	int m_iHp;
+
+
 };

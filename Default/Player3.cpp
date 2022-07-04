@@ -6,8 +6,9 @@
 #include "KeyMgr.h"
 
 
-CPlayer3::CPlayer3()// :m_fAngle(0.f)
+CPlayer3::CPlayer3()
 {
+
 }
 
 
@@ -229,7 +230,7 @@ void CPlayer3::Key_Input(void)
 	// GetKeyState()
 	if (GetAsyncKeyState(VK_RIGHT))
 
-		m_fAngle += D3DXToRadian(3.f);
+  		m_fAngle += D3DXToRadian(3.f);
 
 	if (GetAsyncKeyState(VK_LEFT))
 		m_fAngle -= D3DXToRadian(3.f);

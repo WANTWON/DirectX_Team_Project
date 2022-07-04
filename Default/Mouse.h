@@ -1,10 +1,12 @@
 #pragma once
+
 #include "Obj.h"
-class CBullet3 : public CObj
+
+class CMouse : public CObj
 {
 public:
-	CBullet3();
-	virtual ~CBullet3();
+	CMouse();
+	virtual ~CMouse();
 
 public:
 	virtual void Initialize(void) override;
@@ -13,17 +15,6 @@ public:
 	virtual void Render(HDC hDC) override;
 	virtual void Release(void) override;
 
-
-
-
-
-private:
-	D3DXVECTOR3			m_vPoint[4];
-	D3DXVECTOR3			m_vOriginPoint[4];
-
-	D3DXVECTOR3			m_vGunPoint;
-	D3DXVECTOR3			m_vOriginGunPoint;
-	RECT m_rc;
-
 };
+
 

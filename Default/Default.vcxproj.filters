@@ -123,7 +123,7 @@
     </Filter>
     <Filter Include="01. Obj\JAEHUN\04.Bullet1">
       <UniqueIdentifier>{e7cc7eeb-bc57-410b-af1e-a5f969fba1ad}</UniqueIdentifier>
-   </Filter>
+    </Filter>
     <Filter Include="01. Obj\03. Obj_3">
       <UniqueIdentifier>{38fcc986-b115-4da7-96d2-46d0c433c64e}</UniqueIdentifier>
     </Filter>
@@ -141,6 +141,12 @@
     </Filter>
     <Filter Include="01. Obj\03. Obj_3\34.MainTower">
       <UniqueIdentifier>{34c9c481-3247-40f5-8a33-eef80b107446}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. Obj_3\35.Mouse">
+      <UniqueIdentifier>{497a0a2f-6186-4ab6-a166-f1c5150120d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. Obj_3\36.BulletM3">
+      <UniqueIdentifier>{7f78b17f-063e-4d9b-9525-e7de7873124d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -269,7 +275,7 @@
     </ClInclude>
     <ClInclude Include="Bullet1.h">
       <Filter>01. Obj\JAEHUN\04.Bullet1</Filter>
- </ClInclude>
+    </ClInclude>
     <ClInclude Include="Goal4.h">
       <Filter>01. Obj\04. Obj_4\43. Goal</Filter>
     </ClInclude>
@@ -287,6 +293,12 @@
     </ClInclude>
     <ClInclude Include="Maintower3.h">
       <Filter>01. Obj\03. Obj_3\34.MainTower</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>01. Obj\03. Obj_3\35.Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletM3.h">
+      <Filter>01. Obj\03. Obj_3\36.BulletM3</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -388,7 +400,7 @@
     </ClCompile>
     <ClCompile Include="Bullet1.cpp">
       <Filter>01. Obj\JAEHUN\04.Bullet1</Filter>
- </ClCompile>
+    </ClCompile>
     <ClCompile Include="Goal4.cpp">
       <Filter>01. Obj\04. Obj_4\43. Goal</Filter>
     </ClCompile>
@@ -406,6 +418,12 @@
     </ClCompile>
     <ClCompile Include="Maintower3.cpp">
       <Filter>01. Obj\03. Obj_3\34.MainTower</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>01. Obj\03. Obj_3\35.Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletM3.cpp">
+      <Filter>01. Obj\03. Obj_3\36.BulletM3</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

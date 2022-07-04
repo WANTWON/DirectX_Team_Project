@@ -16,6 +16,7 @@ public:
 
 
 	int moncreate;
+	int um;
 	DWORD		m_dwTime;
 
 };

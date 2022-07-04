@@ -1,10 +1,10 @@
 #pragma once
 #include "Obj.h"
-class CBullet3 : public CObj
+class CBulletM3 : public CObj
 {
 public:
-	CBullet3();
-	virtual ~CBullet3();
+	CBulletM3();
+	virtual ~CBulletM3();
 
 public:
 	virtual void Initialize(void) override;

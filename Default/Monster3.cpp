@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Monster3.h"
 #include "ObjMgr.h"
+#include "CollisionMgr.h"
 
 
 CMonster3::CMonster3()
@@ -18,6 +19,8 @@ void CMonster3::Initialize(void)
 	m_bDead = false;
 	m_tInfo.vPos = { 100.f, 100.f, 0.f };
 	m_fSpeed = 2.f;
+	m_tInfo.vSIze = { 20.f, 20.f , 0.f };
+	//m_tInfo.vPos = { 400.f, 300.f, 0.f };
 
 	//m_vPoint[0] = { m_tInfo.vPos.x - 50.f, m_tInfo.vPos.y - 50.f, 0.f };
 	//m_vPoint[1] = { m_tInfo.vPos.x + 50.f, m_tInfo.vPos.y - 50.f, 0.f };
@@ -37,8 +40,8 @@ void CMonster3::Initialize(void)
 int CMonster3::Update(void)
 {
 
-	/*if (m_bDead)
-		return OBJ_DEAD;*/
+	if (m_bDead)
+		return OBJ_DEAD;
 
 	m_pTarget = CObjMgr::Get_Instance()->Get_Target(OBJ_MAINTOWER, this);
 
@@ -68,6 +71,8 @@ int CMonster3::Update(void)
 	}*/
 
 	
+
+	
 	
 
 	//move();
@@ -77,6 +82,18 @@ int CMonster3::Update(void)
 
 void CMonster3::Late_Update(void)
 {
+
+	if (CCollisionMgr::Collision_Sphere(*(CObjMgr::Get_Instance()->Get_IDlist(OBJ_BULLET)), this))
+	{
+		m_bDead = true;
+		
+	}
+
+	if (CCollisionMgr::Collision_Sphere(*(CObjMgr::Get_Instance()->Get_IDlist(OBJ_MAINTOWER)), this))
+	{
+		m_bDead = true;
+		
+	}
 }
 
 

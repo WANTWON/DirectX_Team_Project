@@ -2,10 +2,15 @@
 #include "Maintower3.h"
 #include "Bullet3.h"
 #include "ObjMgr.h"
+#include "CollisionMgr.h"
+#include "SceneMgr.h"
+#include "AbstractFactory.h"
+#include "BulletM3.h"
 
 
 Maintower3::Maintower3()
 {
+	m_iHp = 15;
 }
 
 Maintower3::~Maintower3()
@@ -15,6 +20,7 @@ Maintower3::~Maintower3()
 
 void Maintower3::Initialize(void)
 {
+	m_tInfo.vSIze={ 100,100,0 };
 
 	if (m_Ttype == TOWER_NORMAL)
 	{
@@ -56,6 +62,8 @@ void Maintower3::Initialize(void)
 	m_vGunPoint = { m_tInfo.vPos.x, m_tInfo.vPos.y - 100.f, 0.f };
 	m_vOriginGunPoint = m_vGunPoint;
 
+	m_dwTime = GetTickCount();
+
 }
 
 
@@ -69,7 +77,11 @@ int Maintower3::Update(void)
 
 
 	m_pTarget = CObjMgr::Get_Instance()->Get_Target(OBJ_MONSTER, this);
-	m_tInfo.vDir = m_pTarget->Get_Info().vPos - m_tInfo.vPos;
+	if(m_pTarget)
+	{
+		m_tInfo.vDir = m_pTarget->Get_Info().vPos - m_tInfo.vPos;
+		}
+	
 
 	D3DXVec3Normalize(&m_tInfo.vDir, &m_tInfo.vDir);
 	D3DXVec3Normalize(&m_tInfo.vLook, &m_tInfo.vLook);
@@ -102,6 +114,18 @@ int Maintower3::Update(void)
 	m_vGunPoint -= {400.f, 300.f, 0.f };
 
 	D3DXVec3TransformCoord(&m_vGunPoint, &m_vGunPoint, &m_tInfo.matWorld);
+	//CObjMgr::Get_Instance()->Add_Object(OBJ_BULLET, CAbstractFactory<CBulletM3>::Create(float(m_vGunPoint.x), float(m_vGunPoint.y), m_fAngle));
+	
+	if (m_dwTime + 1500 < GetTickCount())
+	{
+		if (m_pTarget)
+		{
+			CObjMgr::Get_Instance()->Add_Object(OBJ_BULLET, CAbstractFactory<CBulletM3>::Create(float(m_vGunPoint.x), float(m_vGunPoint.y), m_fAngle));
+		}
+
+
+		m_dwTime = GetTickCount();
+	}
 
 	Update_Rect();
 	return OBJ_NOEVENT;
@@ -109,11 +133,29 @@ int Maintower3::Update(void)
 
 void Maintower3::Late_Update(void)
 {
+	if (CCollisionMgr::Collision_Sphere(*(CObjMgr::Get_Instance()->Get_IDlist(OBJ_MONSTER)), this))
+	{
+		--m_iHp;
+	}
+
+
+	if (m_iHp <= 0)
+	{
+		m_bDead = true;
+		CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
+
+	}
 
 }
 
 void Maintower3::Render(HDC hDC)
 {
+
+	TCHAR szScore[32] = L"";
+	swprintf_s(szScore, L"HP :  %d", m_iHp);
+	//TCHAR szClear[32] = L"";
+	//swprintf_s(szClear, L"√÷¡æ Score :  %d", m_iHp);
+
 	/*Rectangle(hDC,
 	300,
 	300,
@@ -149,6 +191,15 @@ void Maintower3::Render(HDC hDC)
 	MoveToEx(hDC, m_tInfo.vPos.x, m_tInfo.vPos.y, nullptr);
 
 	LineTo(hDC, m_vGunPoint.x, m_vGunPoint.y);
+
+
+	
+
+	if (!m_bDead)
+		TextOut(hDC, 20, 20, szScore, lstrlen(szScore));
+
+
+	
 
 }
 

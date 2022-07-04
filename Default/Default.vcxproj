@@ -162,6 +162,7 @@
     <ClInclude Include="Bullet3.h" />
     <ClInclude Include="Bullet4.h" />
     <ClInclude Include="Bullet2.h" />
+    <ClInclude Include="BulletM3.h" />
     <ClInclude Include="CollisionMgr.h" />
     <ClInclude Include="Default.h" />
     <ClInclude Include="Define.h" />
@@ -179,6 +180,7 @@
     <ClInclude Include="Monster4.h" />
     <ClInclude Include="Monster2.h" />
     <ClInclude Include="Monster3.h" />
+    <ClInclude Include="Mouse.h" />
     <ClInclude Include="MyBmp.h" />
     <ClInclude Include="MyButton.h" />
     <ClInclude Include="MyMenu.h" />
@@ -210,6 +212,7 @@
     <ClCompile Include="Bullet3.cpp" />
     <ClCompile Include="Bullet4.cpp" />
     <ClCompile Include="Bullet2.cpp" />
+    <ClCompile Include="BulletM3.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Default.cpp" />
     <ClCompile Include="Goal4.cpp" />
@@ -223,6 +226,7 @@
     <ClCompile Include="Monster4.cpp" />
     <ClCompile Include="Monster2.cpp" />
     <ClCompile Include="Monster3.cpp" />
+    <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="MyBmp.cpp" />
     <ClCompile Include="MyButton.cpp" />
     <ClCompile Include="MyMenu.cpp" />
